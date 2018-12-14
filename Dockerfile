@@ -1,7 +1,7 @@
 FROM ubuntu:disco
 
 RUN apt-get update &&\
-    apt-get -y install ocserv iptables  &&\
+    apt-get -y install apt-utils ocserv iptables ReadLine  &&\
     mkdir -p /dev/net &&\
     mknod /dev/net/tun c 10 200 &&\
     chmod 0666 /dev/net/tun 
