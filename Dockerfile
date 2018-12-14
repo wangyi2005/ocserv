@@ -1,12 +1,11 @@
-FROM alpine:latest
+FROM ubuntu:disco
 
-ENV OC_VERSION=0.12.1
-
-RUN apk add --virtual .run-deps gnutls-utils iptables libnl3 readline &&\
+RUN apt-get update &&\
+    apt-get -y install ocserv iptables  &&\
     mkdir -p /dev/net &&\
     mknod /dev/net/tun c 10 200 &&\
     chmod 0666 /dev/net/tun 
     #iptables -t nat -A POSTROUTING -j MASQUERADE &&\
     #iptables -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu 
- 
- EXPOSE 8080
+CMD ["ocserv", "-c", "/etc/ocserv/ocserv.conf", "-f"]
+EXPOSE 8080
