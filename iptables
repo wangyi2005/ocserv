@@ -1,0 +1,68 @@
+*mangle
+:PREROUTING ACCEPT [0:0]
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+:POSTROUTING ACCEPT [0:0]
+COMMIT
+
+*nat
+:INPUT ACCEPT [0:0]
+:PREROUTING ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+:POSTROUTING ACCEPT [0:0]
+-A POSTROUTING -s 192.168.18.0/24 -o eth0 -j MASQUERADE
+COMMIT
+
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+# START INPUT RULES
+# Stateful Rule - INPUT
+-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+# ACCEPT traffic from Loopback interface
+-A INPUT -i lo -j ACCEPT
+# ACCEPT SSH from LAN
+-A INPUT -p tcp -m tcp -i ocserv+ --dport 26060 -j ACCEPT
+# ACCEPT DHCP from LAN
+-A INPUT -p udp -m udp -i ocserv+ --dport 67:68 -j ACCEPT
+# ACCEPT Webmin from LAN (Optional, only for Webmin users)
+-A INPUT -p tcp -m tcp -i ocserv+ --dport 10000 -j ACCEPT
+# ACCEPT DNS UDP From LAN
+-A INPUT -p udp -m udp -i ocserv+ --dport 53 -j ACCEPT
+# ACCEPT DNS TCP From LAN
+-A INPUT -p tcp -m tcp -i ocserv+ --dport 53 -j ACCEPT
+# ACCEPT ping from LAN
+-A INPUT -p icmp --icmp-type echo-request -i ocserv+ -j ACCEPT
+# ACCEPT OpenConnect TCP From WAN
+-A INPUT -p tcp -m tcp -i eth0 --dport 443 -j ACCEPT
+# ACCEPT OpenConnect UPD From WAN
+-A INPUT -p udp -m udp -i eth0 --dport 443 -j ACCEPT
+# DROP wan traffic
+-A INPUT -i eth0 -j DROP
+
+# ACCEPT LAN traffic - Learning rule - Should be changed to DROP once custom rules are created.
+-A INPUT -i ocserv+ -j ACCEPT
+# LAST RULE - DROP all traffic
+-A INPUT -j DROP
+# END INPUT RULES
+
+# START FORWARD RULES
+# Stateful Rule - FORWARD
+-A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
+# ACCEPT LAN to WAN
+-A FORWARD -s 192.168.18.0/24 -j ACCEPT
+
+# LAST RULE - ACCEPT all traffic - Should be changed to DROP once custom rules are created.
+-A FORWARD -j ACCEPT
+# END FORWARD RULES
+
+# START OUTPUT RULES
+# Stateful Rule - OUTPUT 
+-A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+# LAST RULE - ACCEPT all traffic - Should be    changed to DROP once custom rules are created.
+-A OUTPUT -j ACCEPT
+# END OUTPUT RULES
+COMMIT
