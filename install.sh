@@ -7,7 +7,7 @@ yum clean all
 yum makecache
 yum install epel-release -y
 
-#v2ray
+#v2ray tcp h2 8443
 bash <(curl -L -s https://install.direct/go.sh)
 wget -O /etc/v2ray/config.json  https://raw.githubusercontent.com/wangyi2005/ocserv/master/h2_server.json
 wget -O /etc/v2ray/wy_cer.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wy_cer.pem 
@@ -18,7 +18,7 @@ cat /etc/v2ray/wy_key.pem
 systemctl start v2ray
 systemctl status v2ray
 
-#ocserv 0.12.1
+#ocserv 0.12.1 tcp 443 udp 3389
 yum install ocserv -y 
 systemctl enable ocserv
 ocserv -v
