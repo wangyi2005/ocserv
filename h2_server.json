@@ -11,24 +11,22 @@
         }
       ]
     },
-	"streamSettings": {
-	  "network": "http",
+    "streamSettings": {
+      "network": "http",
       "security": "tls",
       "tlsSettings": {
-        "certificates": [
-            {
-              "certificateFile": "/etc/v2ray/wy_cer.pem", 
-              "keyFile": "/etc/v2ray/wy_key.pem"
-            }
-          ]
+        "certificates": [{
+          "certificateFile": "/etc/v2ray/wy_cer.pem", 
+          "keyFile": "/etc/v2ray/wy_key.pem"
+        }]
       }
-	}
-  }
-  ],
+    }
+  }],
   "outbounds": [{
     "protocol": "freedom",
     "settings": {}
-  },{
+    },
+    {
     "protocol": "blackhole",
     "settings": {},
     "tag": "blocked"
