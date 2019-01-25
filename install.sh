@@ -39,6 +39,11 @@ wget -O /etc/ocserv/ocserv.conf   https://raw.githubusercontent.com/wangyi2005/o
 wget -O /etc/ocserv/ca-cert.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/ca-cert.pem
 wget -O /etc/ocserv/server-cert.pem  https://raw.githubusercontent.com/wangyi2005/ocserv/master/server-cert.pem
 wget -O /etc/ocserv/server-key.pem  https://raw.githubusercontent.com/wangyi2005/ocserv/master/server-key.pem
+
+cat /etc/ocserv/ocserv.conf
+cat /etc/ocserv/ca-cert.pem
+cat /etc/ocserv/server-cert.pem
+cat /etc/ocserv/server-key.pem
 ocpasswd -c /etc/ocserv/ocpasswd  wangyi
 systemctl start ocserv
 systemctl status ocserv
