@@ -1,0 +1,44 @@
+#centos 7 
+yum install wget -y
+
+# aliyun EPEL
+wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
+yum clean all 
+yum makecache
+yum install epel-release -y
+
+#v2ray
+bash <(curl -L -s https://install.direct/go.sh)
+wget -O /etc/v2ray/config.json  https://raw.githubusercontent.com/wangyi2005/ocserv/master/h2_server.json
+wget -O /etc/v2ray/wy_cer.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wy_cer.pem 
+wget -O /etc/v2ray/wy_key.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wy_key.pem 
+cat /etc/v2ray/config.json
+cat /etc/v2ray/wy_cer.pem 
+cat /etc/v2ray/wy_key.pem 
+systemctl start v2ray
+systemctl status v2ray
+
+#ocserv 0.12.1
+yum install ocserv -y 
+systemctl enable ocserv
+ocserv -v
+echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf 
+sysctl -p
+systemctl stop firewalld.service
+systemctl mask firewalld.service
+
+yum install iptables-services  -y
+systemctl start  iptables.service
+iptables -t nat -A POSTROUTING -s 192.168.18.0/24 -o eth0 -j MASQUERADE
+iptables -A FORWARD -i vpns+ -j ACCEPT 
+iptables -A FORWARD -o vpns+ -j ACCEPT
+iptables -A FORWARD -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
+iptables-save > /etc/sysconfig/iptables
+
+wget -O /etc/ocserv/ocserv.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/ocserv.conf
+wget -O /etc/ocserv/ca-cert.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/ca-cert.pem
+wget -O /etc/ocserv/server-cert.pem  https://raw.githubusercontent.com/wangyi2005/ocserv/master/server-cert.pem
+wget -O /etc/ocserv/server-key.pem  https://raw.githubusercontent.com/wangyi2005/ocserv/master/server-key.pem
+ocpasswd -c /etc/ocserv/ocpasswd  wangyi
+systemctl start ocserv
+systemctl status ocserv
