@@ -44,6 +44,6 @@ cat /etc/ocserv/ocserv.conf
 cat /etc/ocserv/ca-cert.pem
 cat /etc/ocserv/server-cert.pem
 cat /etc/ocserv/server-key.pem
-ocpasswd -c /etc/ocserv/ocpasswd  wangyi
+#ocpasswd -c /etc/ocserv/ocpasswd  wangyi
 systemctl start ocserv
 systemctl status ocserv
