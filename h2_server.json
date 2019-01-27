@@ -34,8 +34,8 @@
         }
       ]
     },
-	"streamSettings": {
-	  "network": "quic",
+    "streamSettings": {
+      "network": "quic",
       "security": "tls",
       "tlsSettings": {
         "certificates": [
@@ -45,12 +45,12 @@
             }
           ]
       },
-	  "quicSettings": {
+      "quicSettings": {
         "header": {
           "type": "dtls"
         }
       } 
-	  }
+    }
   }
   ],
   "outbounds": [{
