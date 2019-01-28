@@ -27,13 +27,13 @@ sysctl -p
 systemctl stop firewalld.service
 systemctl mask firewalld.service
 
-yum -y install dnsmasq
-wget -O /etc/dnsmasq.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dnsmasq.conf
-wget -O /etc/resolv.dnsmasq.conf  https://raw.githubusercontent.com/wangyi2005/ocserv/master/resolv.dnsmasq.conf
-cat /etc/dnsmasq.conf
-cat /etc/resolv.dnsmasq.conf
-systemctl enable dnsmasq
-systemctl start dnsmasq
+#yum -y install dnsmasq
+#wget -O /etc/dnsmasq.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dnsmasq.conf
+#wget -O /etc/resolv.dnsmasq.conf  https://raw.githubusercontent.com/wangyi2005/ocserv/master/resolv.dnsmasq.conf
+#cat /etc/dnsmasq.conf
+#cat /etc/resolv.dnsmasq.conf
+#systemctl enable dnsmasq
+#systemctl start dnsmasq
 
 yum install iptables-services  -y
 systemctl start  iptables.service
