@@ -18,7 +18,7 @@ cat /etc/v2ray/wy_key.pem
 systemctl start v2ray
 systemctl status v2ray
 
-#ocserv 0.12.1 tcp 443 udp 3389
+#ocserv 0.12.1 tcp 443 udp 443
 yum install ocserv -y 
 systemctl enable ocserv
 ocserv -v
@@ -26,6 +26,14 @@ echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
 sysctl -p
 systemctl stop firewalld.service
 systemctl mask firewalld.service
+
+yum -y install dnsmasq
+wget -O /etc//etc/dnsmasq.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dnsmasq.conf
+wget -O /etc//etc/resolv.dnsmasq.conf    https://raw.githubusercontent.com/wangyi2005/ocserv/master/resolv.dnsmasq.conf
+cat /etc/dnsmasq.conf
+cat /etc/resolv.dnsmasq.conf
+systemctl enable dnsmasq
+systemctl start dnsmasq
 
 yum install iptables-services  -y
 systemctl start  iptables.service
