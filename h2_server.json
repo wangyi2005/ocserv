@@ -29,27 +29,26 @@
       "clients": [
         {
           "id": "60ca58e9-003e-4c01-98de-c2223ae49153",
-          "level": 1,
           "alterId": 64
         }
       ]
     },
     "streamSettings": {
-      "network": "quic",
-      "security": "tls",
-      "tlsSettings": {
-        "certificates": [
-            {
-              "certificateFile": "/etc/v2ray/wy_cer.pem", 
-              "keyFile": "/etc/v2ray/wy_key.pem"
-            }
-          ]
-      },
-      "quicSettings": {
-        "header": {
-          "type": "dtls"
-        }
-      } 
+      "network": "quic"
+      //"security": "tls",
+      //"tlsSettings": {
+      //  "certificates": [
+      //      {
+      //        "certificateFile": "/etc/v2ray/wy_cer.pem", 
+      //        "keyFile": "/etc/v2ray/wy_key.pem"
+      //      }
+      //    ]
+      //},
+      //"quicSettings": {
+      //  "header": {
+      //    "type": "dtls"
+      //  }
+      //} 
     }
   }
   ],
