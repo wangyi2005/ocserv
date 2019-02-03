@@ -1,9 +1,8 @@
 #centos 7 
-# yum update -y
-yum install wget epel-release -y
+yum install wget -y
 
 # aliyun EPEL
-#wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
+wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
 #yum clean all 
 #yum makecache
 #yum install epel-release -y
@@ -19,10 +18,6 @@ cat /etc/v2ray/wy_key.pem
 systemctl start v2ray
 systemctl status v2ray
 
-#ocserv 0.12.1 tcp 443 udp 443
-yum install ocserv -y 
-systemctl enable ocserv
-ocserv -v
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf 
 sysctl -p
 systemctl stop firewalld.service
@@ -45,6 +40,10 @@ iptables -A FORWARD -o vpns+ -j ACCEPT
 iptables -A FORWARD -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
 iptables-save > /etc/sysconfig/iptables
 
+#ocserv 0.12.1 tcp 443 udp 443
+yum install ocserv -y 
+systemctl enable ocserv
+ocserv -v
 wget -O /etc/ocserv/ocserv.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/ocserv.conf
 wget -O /etc/ocserv/ca-cert.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/ca-cert.pem
 wget -O /etc/ocserv/server-cert.pem  https://raw.githubusercontent.com/wangyi2005/ocserv/master/server-cert.pem
