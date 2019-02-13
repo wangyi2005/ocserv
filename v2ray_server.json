@@ -61,7 +61,7 @@
       "network": "tcp",
       "tcpSettings": {
         "header": {
-          "type": "none",
+          "type": "http",
           "request": {
             "version": "1.1",
             "method": "GET",
