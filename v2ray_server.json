@@ -6,7 +6,6 @@
       "clients": [
         {
           "id": "60ca58e9-003e-4c01-98de-c2223ae49153",
-          "level": 1,
           "alterId": 64,
           "security": "none"
         }
@@ -30,7 +29,6 @@
       "clients": [
         {
           "id": "60ca58e9-003e-4c01-98de-c2223ae49153",
-          "level": 1,
           "alterId": 64,
           "security": "none"
         }
@@ -55,7 +53,6 @@
         {
           "id": "60ca58e9-003e-4c01-98de-c2223ae49153",
           "alterId": 64,
-          "level": 1,
           "security": "auto"
         }
       ]
@@ -102,7 +99,6 @@
       "clients": [
         {
           "id": "60ca58e9-003e-4c01-98de-c2223ae49153",
-          "level": 1,
           "alterId": 64,
           "security": "none"
         }
@@ -127,6 +123,13 @@
     "settings": {},
     "tag": "blocked"
   }],
+  "dns": {
+    "servers": [
+      "8.8.8.8",
+      "8.8.4.4",
+      "localhost"
+    ]
+  },
   "routing": {
     "rules": [
       {
