@@ -6,7 +6,7 @@
       "clients": [
         {
           "id": "60ca58e9-003e-4c01-98de-c2223ae49153",
-          "level": 0,
+          "level": 1,
           "alterId": 64,
           "security": "none"
         }
@@ -30,7 +30,7 @@
       "clients": [
         {
           "id": "60ca58e9-003e-4c01-98de-c2223ae49153",
-          "level": 0,
+          "level": 1,
           "alterId": 64,
           "security": "none"
         }
@@ -55,7 +55,7 @@
         {
           "id": "60ca58e9-003e-4c01-98de-c2223ae49153",
           "alterId": 64,
-          "level": 0,
+          "level": 1,
           "security": "auto"
         }
       ]
@@ -102,7 +102,7 @@
       "clients": [
         {
           "id": "60ca58e9-003e-4c01-98de-c2223ae49153",
-          "level": 0,
+          "level": 1,
           "alterId": 64,
           "security": "none"
         }
@@ -127,23 +127,6 @@
     "settings": {},
     "tag": "blocked"
   }],
-  "policy": {
-    "levels": {
-      "0": {
-        "handshake": 4,
-        "connIdle": 300,
-        "uplinkOnly": 2,
-        "downlinkOnly": 2,
-        "statsUserUplink": false,
-        "statsUserDownlink": false,
-        "bufferSize": 10240
-      }
-    },
-    "system": {
-      "statsInboundUplink": false,
-      "statsInboundDownlink": false
-    }
-  },
   "routing": {
     "rules": [
       {
