@@ -108,7 +108,12 @@
       ]
     },
     "streamSettings": {
-      "network": "quic"
+      "network": "quic",
+      "quicSettings": {
+        "header": {
+          "type": "dtls"
+        }  
+      }
     }
   }             
   ],
