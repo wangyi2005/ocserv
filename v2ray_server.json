@@ -7,7 +7,8 @@
         {
           "id": "60ca58e9-003e-4c01-98de-c2223ae49153",
           "level": 1,
-          "alterId": 64
+          "alterId": 64,
+          "security": "none"
         }
       ]
     },
@@ -30,7 +31,8 @@
         {
           "id": "60ca58e9-003e-4c01-98de-c2223ae49153",
           "level": 1,
-          "alterId": 64
+          "alterId": 64,
+          "security": "none"
         }
       ]
     },
@@ -91,7 +93,24 @@
         }
       }
     }
-  }
+  },
+  {
+    "port": 2443,
+    "protocol": "vmess",
+    "settings": {
+      "clients": [
+        {
+          "id": "60ca58e9-003e-4c01-98de-c2223ae49153",
+          "level": 1,
+          "alterId": 64,
+          "security": "none"
+        }
+      ]
+    },
+    "streamSettings": {
+      "network": "quic"
+    }
+  }             
   ],
   "outbounds": [{
     "protocol": "freedom",
