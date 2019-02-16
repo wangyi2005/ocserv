@@ -17,6 +17,7 @@ sysctl -p
 smod | grep bbr
 
 #v2ray h2,ws,tcp,quic
+apt-get install curl -y
 bash <(curl -L -s https://install.direct/go.sh)
 wget -O /etc/v2ray/config.json  https://raw.githubusercontent.com/wangyi2005/ocserv/master/v2ray_server.json
 wget -O /etc/v2ray/wy_cer.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wy_cer.pem 
