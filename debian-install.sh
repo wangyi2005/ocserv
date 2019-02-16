@@ -9,13 +9,23 @@ apt-get -y upgrade
 apt-get -y dist-upgrade
 cat /etc/os-release
 
-# ip forward
+# ip forward bbr
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf 
 echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
 echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
 sysctl -p 
 smod | grep bbr
 
+#v2ray h2,ws,tcp,quic
+bash <(curl -L -s https://install.direct/go.sh)
+wget -O /etc/v2ray/config.json  https://raw.githubusercontent.com/wangyi2005/ocserv/master/v2ray_server.json
+wget -O /etc/v2ray/wy_cer.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wy_cer.pem 
+wget -O /etc/v2ray/wy_key.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wy_key.pem 
+cat /etc/v2ray/config.json
+cat /etc/v2ray/wy_cer.pem 
+cat /etc/v2ray/wy_key.pem 
+systemctl start v2ray
+systemctl status v2ray
 
 # install dnsmasq
 apt-get install dnsmasq -y
