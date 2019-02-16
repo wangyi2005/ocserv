@@ -43,7 +43,7 @@ iptables -t nat -A POSTROUTING -s 192.168.18.0/24 -o eth0 -j MASQUERADE
 #iptables -A FORWARD -i vpns+ -j ACCEPT 
 #iptables -A FORWARD -o vpns+ -j ACCEPT
 iptables -A FORWARD -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
-apt-get install iptables-persistent
+apt-get install iptables-persistent -y
 #cat /etc/iptables/rules.v4
 
 # install ocserv 0.12.1
@@ -60,6 +60,6 @@ systemctl enable ocserv
 #systemctl start ocserv
 #systemctl status ocserv
 #systemctl stop ocserv.socket
-sudo systemctl disable ocserv.socket
-sudo systemctl start ocserv.service
+systemctl disable ocserv.socket
+systemctl start ocserv.service
 reboot
