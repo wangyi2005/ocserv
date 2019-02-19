@@ -1,12 +1,12 @@
 #bebian 9 to 10 
-#apt-get update
-#apt-get -y upgrade
-#apt-get -y dist-upgrade
-#sed -i 's/stretch/buster/g' /etc/apt/sources.list
+apt-get update
+apt-get -y upgrade
+apt-get -y dist-upgrade
+sed -i 's/stretch/buster/g' /etc/apt/sources.list
 #cat etc/apt/sources.list
-#apt-get update
-#apt-get -y upgrade
-#apt-get -y dist-upgrade
+apt-get update
+apt-get -y upgrade
+apt-get -y dist-upgrade
 #cat /etc/os-release
 
 #ubuntu 18 to 19
