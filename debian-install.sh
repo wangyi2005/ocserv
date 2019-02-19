@@ -31,7 +31,7 @@ wget -O /etc/v2ray/wy_key.pem   https://raw.githubusercontent.com/wangyi2005/ocs
 #cat /etc/v2ray/config.json
 #cat /etc/v2ray/wy_cer.pem 
 #cat /etc/v2ray/wy_key.pem 
-systemctl start v2ray
+#systemctl start v2ray
 #systemctl status v2ray
 
 # install dnsmasq
@@ -42,7 +42,7 @@ wget -O /etc/dnsmasq.d/china-domains.conf  https://raw.githubusercontent.com/wan
 #cat /etc/dnsmasq.conf
 #cat /etc/resolv.dnsmasq.conf
 systemctl enable dnsmasq
-systemctl start dnsmasq
+#systemctl start dnsmasq
 
 #set ip rules
 iptables -t nat -A POSTROUTING -s 192.168.18.0/24 -o eth0 -j MASQUERADE
@@ -67,5 +67,5 @@ systemctl enable ocserv
 #systemctl status ocserv
 #systemctl stop ocserv.socket
 systemctl disable ocserv.socket
-systemctl start ocserv.service
+#systemctl start ocserv.service
 reboot
