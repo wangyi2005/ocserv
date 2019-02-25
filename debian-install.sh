@@ -19,6 +19,13 @@ apt-get -y dist-upgrade
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf 
 echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
 echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+# echo 'net.core.wmem_max=12582912' >> /etc/sysctl.conf
+# echo 'net.core.rmem_max=12582912' >> /etc/sysctl.conf
+# echo 'net.ipv4.tcp_rmem= 10240 87380 12582912' >> /etc/sysctl.conf
+# echo 'net.ipv4.tcp_wmem= 10240 87380 12582912' >> /etc/sysctl.conf
+# echo 'net.ipv4.udp_mem = 65536 131072 262144' >> /etc/sysctl.conf
+# echo 'net.core.netdev_max_backlog = 5000' >> /etc/sysctl.conf
+# eth0 txqueuelen 10000
 sysctl -p 
 #lsmod | grep bbr
 
