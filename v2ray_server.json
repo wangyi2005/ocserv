@@ -99,8 +99,7 @@
       "clients": [
         {
           "id": "60ca58e9-003e-4c01-98de-c2223ae49153",
-          "alterId": 64,
-          "security": "none"
+          "alterId": 64
         }
       ]
     },
