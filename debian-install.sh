@@ -65,13 +65,13 @@ wget -O /etc/ocserv/ocserv.conf   https://raw.githubusercontent.com/wangyi2005/o
 wget -O /etc/ocserv/ca-cert.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/ca-cert.pem
 wget -O /etc/ocserv/server-cert.pem  https://raw.githubusercontent.com/wangyi2005/ocserv/master/server-cert.pem
 wget -O /etc/ocserv/server-key.pem  https://raw.githubusercontent.com/wangyi2005/ocserv/master/server-key.pem
-wget -O /etc/systemd/system/ocserv.service  https://raw.githubusercontent.com/wangyi2005/ocserv/master/ocserv.service
+#wget -O /etc/systemd/system/ocserv.service  https://raw.githubusercontent.com/wangyi2005/ocserv/master/ocserv.service
 #cat /lib/systemd/system/ocserv.service（uncommet require 和 also）
 
 systemctl enable ocserv
 #systemctl start ocserv
 #systemctl status ocserv
 #systemctl stop ocserv.socket
-systemctl disable ocserv.socket
+#systemctl disable ocserv.socket
 #systemctl start ocserv.service
 reboot
