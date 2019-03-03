@@ -58,7 +58,7 @@ iptables -A FORWARD -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-
 apt-get install iptables-persistent -y
 #cat /etc/iptables/rules.v4
 
-# install ocserv 0.12.1
+# install ocserv 0.12.2
 apt-get install ocserv -y
 #apt autoremove
 wget -O /etc/ocserv/ocserv.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/ocserv.conf
