@@ -1,10 +1,12 @@
 [Unit]
 Description=Dingo - DNS over HTTPS
+Wants=network.target
 
 [Service]
 Type=simple
 ExecStart=/usr/bin/dingo -port 5353 -gdns:auto 
 ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-abort
 StandardOutput=null
 
 [Install]
