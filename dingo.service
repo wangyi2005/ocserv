@@ -4,6 +4,7 @@ Description=Dingo - DNS over HTTPS
 [Service]
 Type=simple
 ExecStart=/usr/bin/dingo -port 5353 -gdns:auto 
+ExecReload=/bin/kill -HUP $MAINPID
 StandardOutput=null
 
 [Install]
