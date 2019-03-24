@@ -1,4 +1,4 @@
-#bebian 9 to 10 
+#debian 9 to 10 
 apt-get update
 apt-get -y upgrade
 apt-get -y dist-upgrade
