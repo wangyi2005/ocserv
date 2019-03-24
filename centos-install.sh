@@ -21,6 +21,14 @@ sysctl -p
 systemctl stop firewalld.service
 systemctl mask firewalld.service
 
+# install dingo port 5353 CDN-china-domains
+#wget -O /usr/bin/dingo  https://raw.githubusercontent.com/wangyi2005/ocserv/master/dingo-linux-amd64
+wget -O /usr/bin/dingo  https://github.com/pforemski/dingo/releases/download/0.13/dingo-linux-amd64
+chmod +x /usr/bin/dingo
+wget -O /etc/systemd/system/dingo.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dingo.service
+systemctl enable dingo
+
+# install dnsmasq port 53
 yum -y install dnsmasq
 wget -O /etc/dnsmasq.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dnsmasq.conf
 wget -O /etc/resolv.dnsmasq.conf  https://raw.githubusercontent.com/wangyi2005/ocserv/master/resolv.dnsmasq.conf
@@ -30,6 +38,7 @@ wget -O /etc/dnsmasq.d/china-domains.conf  https://raw.githubusercontent.com/wan
 systemctl enable dnsmasq
 #systemctl start dnsmasq
 
+# install iptables
 yum install iptables-services  -y
 #systemctl start  iptables.service
 iptables -t nat -A POSTROUTING -s 192.168.18.0/24 -o eth0 -j MASQUERADE
@@ -40,13 +49,11 @@ iptables-save > /etc/sysconfig/iptables
 
 #ocserv 0.12.2 tcp 443 udp 443
 yum install ocserv -y 
-
 #ocserv -v
 wget -O /etc/ocserv/ocserv.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/ocserv.conf
 wget -O /etc/ocserv/ca-cert.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/ca-cert.pem
 wget -O /etc/ocserv/server-cert.pem  https://raw.githubusercontent.com/wangyi2005/ocserv/master/server-cert.pem
 wget -O /etc/ocserv/server-key.pem  https://raw.githubusercontent.com/wangyi2005/ocserv/master/server-key.pem
-
 #cat /etc/ocserv/ocserv.conf
 #cat /etc/ocserv/ca-cert.pem
 #cat /etc/ocserv/server-cert.pem
