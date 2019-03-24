@@ -17,7 +17,7 @@ wget -O /etc/v2ray/wy_key.pem   https://raw.githubusercontent.com/wangyi2005/ocs
 #systemctl status v2ray
 
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf 
-sysctl -p
+#sysctl -p
 systemctl stop firewalld.service
 systemctl mask firewalld.service
 
@@ -49,6 +49,7 @@ iptables-save > /etc/sysconfig/iptables
 
 #ocserv 0.12.2 tcp 443 udp 443
 yum install ocserv -y 
+#yum install ocserv -y --enablerepo=epel-testing
 #ocserv -v
 wget -O /etc/ocserv/ocserv.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/ocserv.conf
 wget -O /etc/ocserv/ca-cert.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/ca-cert.pem
