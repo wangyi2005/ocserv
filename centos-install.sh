@@ -2,7 +2,7 @@
 yum update -y
 yum install wget -y
 
-rpm -vih http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 #yum install epel-release -y
 
 #v2ray tcp h2 8443 quic 4443
