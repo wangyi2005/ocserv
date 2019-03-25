@@ -13,7 +13,7 @@ wget -O /etc/v2ray/wy_key.pem   https://raw.githubusercontent.com/wangyi2005/ocs
 #cat /etc/v2ray/config.json
 #cat /etc/v2ray/wy_cer.pem 
 #cat /etc/v2ray/wy_key.pem 
-#systemctl start v2ray
+systemctl enable v2ray
 #systemctl status v2ray
 
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf 
