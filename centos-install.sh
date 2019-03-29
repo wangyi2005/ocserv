@@ -48,8 +48,8 @@ iptables -A FORWARD -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-
 iptables-save > /etc/sysconfig/iptables
 
 #ocserv 0.12.2 tcp 443 udp 443
-yum install ocserv -y 
-#yum --enablerepo=epel-testing install ocserv -y 
+#yum install ocserv -y 
+yum --enablerepo=epel-testing install ocserv -y 
 #ocserv -v
 wget -O /etc/ocserv/ocserv.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/ocserv.conf
 wget -O /etc/ocserv/ca-cert.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/ca-cert.pem
