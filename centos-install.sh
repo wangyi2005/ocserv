@@ -1,5 +1,5 @@
-#centos 7 uodate to (18.10)
-yum update -y
+#centos 7 (18.10)
+#yum update -y
 yum install wget -y
 
 yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
