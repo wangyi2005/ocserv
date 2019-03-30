@@ -2,10 +2,10 @@
 cat /etc/redhat-release
 #yum update -y
 yum install wget -y
-#rpm -qa | grep epel
-#rpm -e epel-release-7-11.noarch
-#yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y
-#yum repolist
+rpm -qa | grep epel
+rpm -e epel-release-7-11.noarch
+yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y
+yum repolist
 #yum install epel-release -y
 
 #v2ray tcp h2 8443 quic 4443
@@ -43,8 +43,9 @@ echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
 #sysctl -p
 
 #ocserv 0.12.3 tcp 443 udp 443
-yum install ocserv -y 
+#yum install ocserv -y 
 #yum --enablerepo=epel-testing install ocserv -y 
+yum install https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/o/ocserv-0.12.3-1.el7.x86_64.rpm -y
 #ocserv -v
 wget -O /etc/ocserv/ocserv.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/ocserv.conf
 wget -O /etc/ocserv/ca-cert.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/ca-cert.pem
