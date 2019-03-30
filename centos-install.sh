@@ -1,8 +1,11 @@
 #centos 7 (18.10)
+cat /etc/redhat-release
 #yum update -y
 yum install wget -y
-
-yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+#rpm -qa | grep epel
+#rpm -e epel-release-7-11.noarch
+#yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y
+#yum repolist
 #yum install epel-release -y
 
 #v2ray tcp h2 8443 quic 4443
