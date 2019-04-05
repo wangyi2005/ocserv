@@ -41,6 +41,12 @@ iptables -t nat -A POSTROUTING -s 192.168.18.0/24 -o eth0 -j MASQUERADE
 iptables -A FORWARD -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
 iptables-save > /etc/sysconfig/iptables
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf 
+echo "net.core.rmem_max = 67108864" >> /etc/sysctl.conf
+echo "net.core.wmem_max = 67108864" >> /etc/sysctl.conf
+echo "net.ipv4.tcp_rmem = 4096 87380 33554432" >> /etc/sysctl.conf
+echo "net.ipv4.tcp_wmem = 4096 65536 33554432" >> /etc/sysctl.conf
+echo "net.ipv4.tcp_mtu_probing=1" >> /etc/sysctl.conf
+echo "net.core.netdev_max_backlog = 5000" >> /etc/sysctl.conf
 #sysctl -p
 
 #ocserv 0.12.3 tcp 443 udp 443
