@@ -67,6 +67,7 @@ systemctl enable ocserv
 
 # wireguard 
 mkdir /etc/wireguard 
+yum --enablerepo=elrepo-kernel install kernel-ml kernel-ml-headers kernel-ml-devel
 yum install wireguard-dkms wireguard-tools
 wget -O /etc/wireguard/wg0.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wg0.conf
 chmod 600 /etc/wireguard/wg0.conf
