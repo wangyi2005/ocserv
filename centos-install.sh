@@ -1,13 +1,13 @@
 #centos 7 (18.10)
 cat /etc/redhat-release
-#yum update -y
+yum update -y
 yum install wget -y
 yum -y install net-tools
 rpm -qa | grep epel
 rpm -e epel-release-7-11.noarch
 yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y
 yum repolist
-#yum install epel-release -y
+yum install epel-release -y
 
 #v2ray tcp h2 8443 quic 4443
 bash <(curl -L -s https://install.direct/go.sh)
@@ -36,6 +36,7 @@ systemctl stop firewalld.service
 systemctl mask firewalld.service
 yum install iptables-services  -y
 iptables -t nat -A POSTROUTING -s 192.168.18.0/24 -o eth0 -j MASQUERADE
+iptables -t nat -A POSTROUTING -s 192.168.88.0/24 -o eth0 -j MASQUERADE
 #iptables -A FORWARD -i vpns+ -j ACCEPT 
 #iptables -A FORWARD -o vpns+ -j ACCEPT
 #iptables -A FORWARD -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
@@ -52,15 +53,21 @@ ip link set eth0 txqueuelen 4096
 ip link set vpns0 txqueuelen 5000
 #sysctl -p
 
-#ocserv 0.12.3 tcp 443 udp 443
-#yum install ocserv -y 
+# ocserv 0.12.3 tcp 443 udp 443
+yum install ocserv -y 
 #yum --enablerepo=epel-testing install ocserv -y 
-yum install https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/o/ocserv-0.12.3-1.el7.x86_64.rpm -y
+#yum install https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/o/ocserv-0.12.3-1.el7.x86_64.rpm -y
 #ocserv -v
 wget -O /etc/ocserv/ocserv.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/ocserv.conf
 wget -O /etc/ocserv/ca-cert.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/ca-cert.pem
 wget -O /etc/ocserv/server-cert.pem  https://raw.githubusercontent.com/wangyi2005/ocserv/master/server-cert.pem
 wget -O /etc/ocserv/server-key.pem  https://raw.githubusercontent.com/wangyi2005/ocserv/master/server-key.pem
 systemctl enable ocserv
+
+# wireguard 
+yum install wireguard-dkms wireguard-tools
+wget -O /etc/wireguard/wg0.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wg0.conf
+wg-quick up wg0
+systemctl enable wg-quick@wg0
 
 reboot
