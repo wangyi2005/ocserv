@@ -59,7 +59,7 @@ wget -O /etc/systemd/system/dingo.service   https://raw.githubusercontent.com/wa
 systemctl enable dingo
 
 #set ip rules
-iptables -t nat -A POSTROUTING -s 192.168.18.0dingo.service/24 -o eth0 -j MASQUERADE
+iptables -t nat -A POSTROUTING -s 192.168.18.0/24 -o eth0 -j MASQUERADE
 #iptables -A FORWARD -i vpns+ -j ACCEPT 
 #iptables -A FORWARD -o vpns+ -j ACCEPT
 iptables -A FORWARD -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
