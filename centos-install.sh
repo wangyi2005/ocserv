@@ -72,6 +72,7 @@ yum install wireguard-dkms wireguard-tools
 wget -O /etc/wireguard/wg0.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wg0.conf
 chmod 600 /etc/wireguard/wg0.conf
 wg-quick up wg0
+#wg-quick down wg0
 systemctl enable wg-quick@wg0
 
 reboot
