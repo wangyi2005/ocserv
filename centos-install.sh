@@ -75,4 +75,8 @@ wg-quick up wg0
 #wg-quick down wg0
 systemctl enable wg-quick@wg0
 
+ip link set eth0 txqueuelen 5000
+ip link set wg0 txqueuelen 5000
+ip link set vpns0 txqueuelen 5000
+
 reboot
