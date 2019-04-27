@@ -51,8 +51,9 @@ echo "net.ipv4.tcp_rmem = 4096 87380 33554432" >> /etc/sysctl.conf
 echo "net.ipv4.tcp_wmem = 4096 65536 33554432" >> /etc/sysctl.conf
 echo "net.ipv4.tcp_mtu_probing=1" >> /etc/sysctl.conf
 echo "net.core.netdev_max_backlog = 5000" >> /etc/sysctl.conf
-ip link set eth0 txqueuelen 4096
-ip link set vpns0 txqueuelen 5000
+echo "ip link set eth0 txqueuelen 5000" >> /etc/sysconfig/network-scripts/ifcfg-eth0
+#ip link set eth0 txqueuelen 5000
+#ip link set wg0 txqueuelen 5000
 #sysctl -p
 
 # ocserv 0.12.3 tcp 443 udp 443
