@@ -52,6 +52,7 @@ echo "net.ipv4.tcp_wmem = 4096 65536 33554432" >> /etc/sysctl.conf
 echo "net.ipv4.tcp_mtu_probing=1" >> /etc/sysctl.conf
 echo "net.core.netdev_max_backlog = 5000" >> /etc/sysctl.conf
 echo "ip link set eth0 txqueuelen 5000" >> /etc/sysconfig/network-scripts/ifcfg-eth0
+#service network restart
 #ip link set eth0 txqueuelen 5000
 #ip link set wg0 txqueuelen 5000
 #sysctl -p
