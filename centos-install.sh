@@ -46,12 +46,15 @@ iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 iptables-save > /etc/sysconfig/iptables
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf 
 echo "net.core.rmem_max = 67108864" >> /etc/sysctl.conf
+echo "net.core.rmem_default = 12582912" >> /etc/sysctl.conf
 echo "net.core.wmem_max = 67108864" >> /etc/sysctl.conf
+echo "net.core.wmem_default = 12582912" >> /etc/sysctl.conf
 echo "net.ipv4.tcp_rmem = 4096 87380 33554432" >> /etc/sysctl.conf
 echo "net.ipv4.tcp_wmem = 4096 65536 33554432" >> /etc/sysctl.conf
-echo "net.ipv4.tcp_mtu_probing=1" >> /etc/sysctl.conf
+#echo "net.ipv4.tcp_mtu_probing=1" >> /etc/sysctl.conf
 echo "net.core.netdev_max_backlog = 5000" >> /etc/sysctl.conf
-echo "ip link set eth0 txqueuelen 5000" >> /etc/sysconfig/network-scripts/ifcfg-eth0
+echo 'net.ipv4.tcp_window_scaling = 1' >> /etc/sysctl.conf
+#echo "ip link set eth0 txqueuelen 5000" >> /etc/sysconfig/network-scripts/ifcfg-eth0
 #service network restart
 #ip link set eth0 txqueuelen 5000
 #ip link set wg0 txqueuelen 5000
