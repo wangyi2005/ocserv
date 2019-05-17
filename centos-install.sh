@@ -28,25 +28,18 @@ systemctl enable dingo
 # install dnsmasq port 53
 yum -y install dnsmasq
 wget -O /etc/dnsmasq.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dnsmasq.conf
-#wget -O /etc/resolv.dnsmasq.conf  https://raw.githubusercontent.com/wangyi2005/ocserv/master/resolv.dnsmasq.conf
-#wget -O /etc/dnsmasq.d/china-domains.conf  https://raw.githubusercontent.com/wangyi2005/ocserv/master/china-domains-dingo.conf
 systemctl enable dnsmasq
 
 # install iptables
 systemctl stop firewalld.service
 systemctl mask firewalld.service
 yum install iptables-services  -y
-#iptables -t nat -A POSTROUTING -s 192.168.18.0/24 -o eth0 -j MASQUERADE
-#iptables -t nat -A POSTROUTING -s 192.168.88.0/24 -o eth0 -j MASQUERADE
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-#iptables -A FORWARD -i vpns+ -j ACCEPT 
-#iptables -A FORWARD -o vpns+ -j ACCEPT
 #iptables -A FORWARD -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
 #iptables -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1380 
 iptables-save > /etc/sysconfig/iptables
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf 
 tuned-adm list
-#tuned-adm profile throughput-performance
 tuned-adm profile network-throughput
 tuned-adm active
 #echo "net.core.rmem_max = 67108864" >> /etc/sysctl.conf
@@ -77,8 +70,8 @@ systemctl enable ocserv
 
 # wireguard 
 mkdir /etc/wireguard 
-yum --enablerepo=elrepo-kernel install kernel-ml kernel-ml-headers kernel-ml-devel
-yum install wireguard-dkms wireguard-tools
+yum --enablerepo=elrepo-kernel install kernel-ml kernel-ml-headers kernel-ml-devel -y
+yum install wireguard-dkms wireguard-tools -y
 wget -O /etc/wireguard/wg0.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wg0.conf
 chmod 600 /etc/wireguard/wg0.conf
 wg-quick up wg0
