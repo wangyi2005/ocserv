@@ -3,7 +3,7 @@ cat /etc/redhat-release
 yum update -y
 yum install wget -y
 yum -y install net-tools
-rpm -qa | grep epel
+#rpm -qa | grep epel
 rpm -e epel-release-7-11.noarch
 yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y
 curl -Lo /etc/yum.repos.d/wireguard.repo https://copr.fedorainfracloud.org/coprs/jdoss/wireguard/repo/epel-7/jdoss-wireguard-epel-7.repo
@@ -49,15 +49,15 @@ tuned-adm list
 #tuned-adm profile throughput-performance
 tuned-adm profile network-throughput
 tuned-adm active
-echo "net.core.rmem_max = 67108864" >> /etc/sysctl.conf
-echo "net.core.rmem_default = 12582912" >> /etc/sysctl.conf
-echo "net.core.wmem_max = 67108864" >> /etc/sysctl.conf
-echo "net.core.wmem_default = 12582912" >> /etc/sysctl.conf
-echo "net.ipv4.tcp_rmem = 4096 87380 33554432" >> /etc/sysctl.conf
-echo "net.ipv4.tcp_wmem = 4096 65536 33554432" >> /etc/sysctl.conf
-echo "net.ipv4.tcp_mtu_probing=1" >> /etc/sysctl.conf
-echo "net.core.netdev_max_backlog = 5000" >> /etc/sysctl.conf
-echo 'net.ipv4.tcp_window_scaling = 1' >> /etc/sysctl.conf
+#echo "net.core.rmem_max = 67108864" >> /etc/sysctl.conf
+#echo "net.core.rmem_default = 12582912" >> /etc/sysctl.conf
+#echo "net.core.wmem_max = 67108864" >> /etc/sysctl.conf
+#echo "net.core.wmem_default = 12582912" >> /etc/sysctl.conf
+#echo "net.ipv4.tcp_rmem = 4096 87380 33554432" >> /etc/sysctl.conf
+#echo "net.ipv4.tcp_wmem = 4096 65536 33554432" >> /etc/sysctl.conf
+#echo "net.ipv4.tcp_mtu_probing=1" >> /etc/sysctl.conf
+#echo "net.core.netdev_max_backlog = 5000" >> /etc/sysctl.conf
+#echo 'net.ipv4.tcp_window_scaling = 1' >> /etc/sysctl.conf
 #echo "ip link set eth0 txqueuelen 5000" >> /etc/sysconfig/network-scripts/ifcfg-eth0
 #service network restart
 #ip link set eth0 txqueuelen 5000
@@ -81,12 +81,12 @@ yum --enablerepo=elrepo-kernel install kernel-ml kernel-ml-headers kernel-ml-dev
 yum install wireguard-dkms wireguard-tools
 wget -O /etc/wireguard/wg0.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wg0.conf
 chmod 600 /etc/wireguard/wg0.conf
-wg-quick up wg0
+#wg-quick up wg0
 #wg-quick down wg0
 systemctl enable wg-quick@wg0
 
-ip link set eth0 txqueuelen 5000
-ip link set wg0 txqueuelen 5000
-ip link set vpns0 txqueuelen 5000
+#ip link set eth0 txqueuelen 5000
+#ip link set wg0 txqueuelen 5000
+#ip link set vpns0 txqueuelen 5000
 
 reboot
