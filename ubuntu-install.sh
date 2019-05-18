@@ -43,7 +43,11 @@ systemctl start dingo
 
 #set ip rules
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 apt-get install iptables-persistent -y
+iptables-save > /etc/iptables/rules.v4
 
 # install ocserv 0.12.2
 #apt-get install ocserv -y
