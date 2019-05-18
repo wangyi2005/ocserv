@@ -33,6 +33,16 @@ systemctl enable dnsmasq
 # install iptables
 systemctl stop firewalld.service
 systemctl mask firewalld.service
+firewall-cmd --zone=public --add-port=443/tcp --permanent
+firewall-cmd --zone=public --add-port=443/udp --permanent
+firewall-cmd --zone=public --add-port=2443/tcp --permanent
+firewall-cmd --zone=public --add-port=4443/tcp --permanent
+firewall-cmd --zone=public --add-port=6443/tcp --permanent
+firewall-cmd --zone=public --add-port=8443/tcp --permanent
+firewall-cmd --zone=public --add-port=26060/tcp --permanent
+firewall-cmd --zone=public --add-port=44210/udp --permanent
+firewall-cmd --zone=trusted --add-interface=wg0 --permanent
+
 yum install iptables-services  -y
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 #iptables -A FORWARD -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
