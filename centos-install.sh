@@ -33,16 +33,6 @@ systemctl enable dnsmasq
 # install iptables
 #systemctl stop firewalld.service
 #systemctl mask firewalld.service
-firewall-cmd --zone=public --add-port=443/tcp --permanent
-firewall-cmd --zone=public --add-port=443/udp --permanent
-firewall-cmd --zone=public --add-port=2443/udp --permanent
-firewall-cmd --zone=public --add-port=4443/tcp --permanent
-firewall-cmd --zone=public --add-port=6443/tcp --permanent
-firewall-cmd --zone=public --add-port=8443/tcp --permanent
-firewall-cmd --zone=public --add-port=26060/tcp --permanent
-firewall-cmd --zone=public --add-port=44210/udp --permanent
-firewall-cmd --zone=trusted --add-interface=wg0 --permanent
-firewall-cmd --reload
 
 #yum install iptables-services  -y
 #iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
@@ -88,6 +78,18 @@ chmod 600 /etc/wireguard/wg0.conf
 wg-quick up wg0
 #wg-quick down wg0
 systemctl enable wg-quick@wg0
+
+firewall-cmd --zone=public --add-port=443/tcp --permanent
+firewall-cmd --zone=public --add-port=443/udp --permanent
+firewall-cmd --zone=public --add-port=2443/udp --permanent
+firewall-cmd --zone=public --add-port=4443/tcp --permanent
+firewall-cmd --zone=public --add-port=6443/tcp --permanent
+firewall-cmd --zone=public --add-port=8443/tcp --permanent
+firewall-cmd --zone=public --add-port=26060/tcp --permanent
+firewall-cmd --zone=public --add-port=44210/udp --permanent
+firewall-cmd --zone=trusted --add-interface=wg0 --permanent
+firewall-cmd --zone=public --add-masquerade --permanent
+firewall-cmd --reload
 
 #ip link set eth0 txqueuelen 5000
 #ip link set wg0 txqueuelen 5000
