@@ -79,6 +79,8 @@ wg-quick up wg0
 #wg-quick down wg0
 systemctl enable wg-quick@wg0
 
+systemctl start firewalld
+systemctl enable firewalld
 firewall-cmd --zone=public --add-port=443/tcp --permanent
 firewall-cmd --zone=public --add-port=443/udp --permanent
 firewall-cmd --zone=public --add-port=2443/udp --permanent
