@@ -31,23 +31,24 @@ wget -O /etc/dnsmasq.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/
 systemctl enable dnsmasq
 
 # install iptables
-systemctl stop firewalld.service
-systemctl mask firewalld.service
+#systemctl stop firewalld.service
+#systemctl mask firewalld.service
 firewall-cmd --zone=public --add-port=443/tcp --permanent
 firewall-cmd --zone=public --add-port=443/udp --permanent
-firewall-cmd --zone=public --add-port=2443/tcp --permanent
+firewall-cmd --zone=public --add-port=2443/udp --permanent
 firewall-cmd --zone=public --add-port=4443/tcp --permanent
 firewall-cmd --zone=public --add-port=6443/tcp --permanent
 firewall-cmd --zone=public --add-port=8443/tcp --permanent
 firewall-cmd --zone=public --add-port=26060/tcp --permanent
 firewall-cmd --zone=public --add-port=44210/udp --permanent
 firewall-cmd --zone=trusted --add-interface=wg0 --permanent
+firewall-cmd --reload
 
-yum install iptables-services  -y
-iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+#yum install iptables-services  -y
+#iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 #iptables -A FORWARD -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
 #iptables -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1380 
-iptables-save > /etc/sysconfig/iptables
+#iptables-save > /etc/sysconfig/iptables
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf 
 tuned-adm list
 tuned-adm profile network-throughput
