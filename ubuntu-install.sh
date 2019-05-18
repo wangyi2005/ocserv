@@ -13,7 +13,7 @@ echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
 echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
 echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
 echo "ip link set eth0 txqueuelen 5000" >> /etc/rc.local
-echo "ip link set wg0 txqueuelen 5000" >> /etc/rc.local
+#echo "ip link set wg0 txqueuelen 5000" >> /etc/rc.local
 sysctl -p 
 
 #install v2ray h2,ws,tcp,quic
