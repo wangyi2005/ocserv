@@ -1,7 +1,8 @@
 # install wireguard
-add-apt-repository ppa:wireguard/wireguard
-apt-get update
-apt-get install wireguard
+apt install software-properties-common -y
+add-apt-repository ppa:wireguard/wireguard 
+apt-get update -y
+apt-get install wireguard -y
 wget -O /etc/wireguard/wg0.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wg0.conf
 chmod 600 /etc/wireguard/wg0.conf
 systemctl start wg-quick@wg0
