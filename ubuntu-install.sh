@@ -12,6 +12,8 @@ systemctl enable wg-quick@wg0
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf 
 echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
 echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+echo "ip link set eth0 txqueuelen 5000" >> /etc/rc.local
+echo "ip link set wg0 txqueuelen 5000" >> /etc/rc.local
 sysctl -p 
 
 #install v2ray h2,ws,tcp,quic
@@ -42,7 +44,6 @@ systemctl start dingo
 #set ip rules
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 apt-get install iptables-persistent -y
-#cat /etc/iptables/rules.v4
 
 # install ocserv 0.12.2
 #apt-get install ocserv -y
@@ -54,9 +55,3 @@ apt-get install iptables-persistent -y
 #wget -O /etc/systemd/system/ocserv.service  https://raw.githubusercontent.com/wangyi2005/ocserv/master/ocserv.service
 #cat /lib/systemd/system/ocserv.service（uncommet require 和 also）
 
-#systemctl enable ocserv
-#systemctl start ocserv
-#systemctl status ocserv
-#systemctl stop ocserv.socket
-#systemctl disable ocserv.socket
-#systemctl start ocserv.service
