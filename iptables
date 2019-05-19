@@ -4,7 +4,7 @@
 :INPUT ACCEPT [0:0]
 :OUTPUT ACCEPT [0:0]
 :POSTROUTING ACCEPT [0:0]
--A POSTROUTING  -o eth0 -j MASQUERADE
+-A POSTROUTING -o eth0 -j MASQUERADE
 COMMIT
 
 *mangle
@@ -19,25 +19,13 @@ COMMIT
 :INPUT ACCEPT [0:0]
 :FORWARD ACCEPT [0:0]
 :OUTPUT ACCEPT [0:0]
-#-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-#-A INPUT -i lo -j ACCEPT
-#-A INPUT -p tcp -m tcp -i eth0 --dport 26060 -j ACCEPT
-#-A INPUT -p udp -m udp -i vpns+ --dport 67:68 -j ACCEPT
-#-A INPUT -p udp -m udp --dport 53 -j ACCEPT
-#-A INPUT -p tcp -m tcp --dport 53 -j ACCEPT
-#-A INPUT -p icmp --icmp-type echo-request -j ACCEPT
-#-A INPUT -p tcp -m tcp -i eth0 --dport 443 -j ACCEPT
-#-A INPUT -p udp -m udp -i eth0 --dport 443 -j ACCEPT
-#-A INPUT -p udp -m udp -i eth0 --dport 2443 -j ACCEPT
-#-A INPUT -p udp -m udp -i eth0 --dport 44210 -j ACCEPT
--A INPUT -i eth0 -m state --state NEW -p udp --dport 44210 -j ACCEPT
-#-A INPUT -p tcp -m tcp -i eth0 --dport 4443 -j ACCEPT
-#-A INPUT -p tcp -m tcp -i eth0 --dport 6443 -j ACCEPT
-#-A INPUT -p tcp -m tcp -i eth0 --dport 8443 -j ACCEPT
-#-A INPUT -i eth0 -j DROP
--A INPUT -i wg0 -j ACCEPT
+-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+-A INPUT -p tcp --dport 26060 -m state --state NEW -s 0.0.0.0/0 -j ACCEPT
+-A INPUT -p udp --dport 44210 -m state --state NEW -s 0.0.0.0/0 -j ACCEPT
+-A INPUT -p tcp --dport 443   -m state --state NEW -s 0.0.0.0/0 -j ACCEPT
+-A INPUT -p udp --dport 443   -m state --state NEW -s 0.0.0.0/0 -j ACCEPT
+-A INPUT -i wg0   -j ACCEPT
 -A INPUT -i vpns+ -j ACCEPT
-#-A INPUT -j DROP
 
 -A FORWARD -i vpns+ -j ACCEPT
 -A FORWARD -i wg0   -j ACCEPT
@@ -45,12 +33,12 @@ COMMIT
 -A FORWARD -i wg0   -o eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT
 -A FORWARD -i eth0 -o vpns+ -m state --state RELATED,ESTABLISHED -j ACCEPT
 -A FORWARD -i eth0 -o wg0   -m state --state RELATED,ESTABLISHED -j ACCEPT
-#-A FORWARD -j DROP
 
 -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-#-A OUTPUT -j ACCEPT
+-A OUTPUT -p udp --dport 53  -m state --state NEW -j ACCEPT
+-A OUTPUT -p tcp --dport 53  -m state --state NEW -j ACCEPT
+-A OUTPUT -p tcp --dport 80  -m state --state NEW -j ACCEPT
+-A OUTPUT -p tcp --dport 443 -m state --state NEW -j ACCEPT
+
 COMMIT
 # Completed on Sat May 18 08:13:53 2019
-
-
-
