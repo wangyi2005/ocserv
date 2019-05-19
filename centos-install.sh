@@ -36,6 +36,8 @@ systemctl mask firewalld.service
 
 yum install iptables-services  -y
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+#iptables -A FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+#iptables -A FORWARD -s 192.168.88.0/255.255.255.0 -i eth0 -o eth1 -m conntrack --ctstate NEW -j ACCEPT
 #iptables -A FORWARD -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
 #iptables -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1380 
 iptables-save > /etc/sysconfig/iptables
@@ -52,6 +54,9 @@ tuned-adm active
 #echo "net.ipv4.tcp_mtu_probing=1" >> /etc/sysctl.conf
 #echo "net.core.netdev_max_backlog = 5000" >> /etc/sysctl.conf
 #echo 'net.ipv4.tcp_window_scaling = 1' >> /etc/sysctl.conf
+echo "net.ipv4.conf.all.forwarding=1">> /etc/sysctl.conf
+echo "net.ipv4.conf.default.forwarding=1">> /etc/sysctl.conf
+
 #echo "ip link set eth0 txqueuelen 5000" >> /etc/sysconfig/network-scripts/ifcfg-eth0
 #service network restart
 #ip link set eth0 txqueuelen 5000
