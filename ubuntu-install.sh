@@ -32,7 +32,7 @@ wget -O /etc/dnsmasq.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/
 ##wget -O /etc/dnsmasq.d/china-domains.conf  https://raw.githubusercontent.com/wangyi2005/ocserv/master/china-domains.conf
 #wget -O /etc/dnsmasq.d/china-domains.conf  https://raw.githubusercontent.com/wangyi2005/ocserv/master/china-domains-dingo.conf
 systemctl enable dnsmasq
-systemctl start dnsmasq
+systemctl restart dnsmasq
 
 # install dingo port 5353 CDN-china-domains
 wget -O /usr/bin/dingo  https://github.com/pforemski/dingo/releases/download/0.13/dingo-linux-amd64
