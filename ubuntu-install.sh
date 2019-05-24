@@ -10,10 +10,10 @@ systemctl enable wg-quick@wg0
 
 # ip forward bbr
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf 
-echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
-echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
-echo "ip link set eth0 txqueuelen 5000" >> /etc/rc.local
-#echo "ip link set wg0 txqueuelen 5000" >> /etc/rc.local
+#echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+#echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+#echo "ip link set eth0 txqueuelen 5000" >> /etc/rc.local
+##echo "ip link set wg0 txqueuelen 5000" >> /etc/rc.local
 sysctl -p 
 
 #install v2ray h2,ws,tcp,quic
@@ -28,9 +28,9 @@ systemctl start v2ray
 # install dnsmasq
 apt-get install dnsmasq -y
 wget -O /etc/dnsmasq.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dnsmasq.conf
-wget -O /etc/resolv.dnsmasq.conf  https://raw.githubusercontent.com/wangyi2005/ocserv/master/resolv.dnsmasq.conf
-#wget -O /etc/dnsmasq.d/china-domains.conf  https://raw.githubusercontent.com/wangyi2005/ocserv/master/china-domains.conf
-wget -O /etc/dnsmasq.d/china-domains.conf  https://raw.githubusercontent.com/wangyi2005/ocserv/master/china-domains-dingo.conf
+#wget -O /etc/resolv.dnsmasq.conf  https://raw.githubusercontent.com/wangyi2005/ocserv/master/resolv.dnsmasq.conf
+##wget -O /etc/dnsmasq.d/china-domains.conf  https://raw.githubusercontent.com/wangyi2005/ocserv/master/china-domains.conf
+#wget -O /etc/dnsmasq.d/china-domains.conf  https://raw.githubusercontent.com/wangyi2005/ocserv/master/china-domains-dingo.conf
 systemctl enable dnsmasq
 systemctl start dnsmasq
 
@@ -42,12 +42,12 @@ systemctl enable dingo
 systemctl start dingo
 
 #set ip rules
-#iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 #iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 #iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
 #iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-#apt-get install iptables-persistent -y
-#iptables-save > /etc/iptables/rules.v4
+apt-get install iptables-persistent -y
+iptables-save > /etc/iptables/rules.v4
 
 # install ocserv 0.12.2
 #apt-get install ocserv -y
