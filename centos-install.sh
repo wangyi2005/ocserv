@@ -16,7 +16,7 @@ wget -O /etc/v2ray/config.json  https://raw.githubusercontent.com/wangyi2005/ocs
 wget -O /etc/v2ray/wy_cer.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wy_cer.pem 
 wget -O /etc/v2ray/wy_key.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wy_key.pem 
 systemctl enable v2ray
-systemctl start v2ray
+#systemctl start v2ray
 
 # install dingo port 5353 CDN-china-domains
 #wget -O /usr/bin/dingo  https://raw.githubusercontent.com/wangyi2005/ocserv/master/dingo-linux-amd64
@@ -24,13 +24,13 @@ wget -O /usr/bin/dingo  https://github.com/pforemski/dingo/releases/download/0.1
 chmod +x /usr/bin/dingo
 wget -O /etc/systemd/system/dingo.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dingo.service
 systemctl enable dingo
-systemctl start dingo
+#systemctl start dingo
 
 # install dnsmasq port 53
 yum -y install dnsmasq
 wget -O /etc/dnsmasq.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dnsmasq.conf
 systemctl enable dnsmasq
-systemctl start dnsmasq
+#systemctl start dnsmasq
 
 # install iptables
 systemctl stop firewalld.service
@@ -47,7 +47,7 @@ iptables-save > /etc/sysconfig/iptables
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf 
 tuned-adm list
 tuned-adm profile network-throughput
-tuned-adm active
+#tuned-adm active
 #echo "net.core.rmem_max = 67108864" >> /etc/sysctl.conf
 #echo "net.core.rmem_default = 12582912" >> /etc/sysctl.conf
 #echo "net.core.wmem_max = 67108864" >> /etc/sysctl.conf
@@ -57,14 +57,7 @@ tuned-adm active
 #echo "net.ipv4.tcp_mtu_probing=1" >> /etc/sysctl.conf
 #echo "net.core.netdev_max_backlog = 5000" >> /etc/sysctl.conf
 #echo 'net.ipv4.tcp_window_scaling = 1' >> /etc/sysctl.conf
-#echo "net.ipv4.conf.all.forwarding=1">> /etc/sysctl.conf
-#echo "net.ipv4.conf.default.forwarding=1">> /etc/sysctl.conf
-
-#echo "ip link set eth0 txqueuelen 5000" >> /etc/sysconfig/network-scripts/ifcfg-eth0
-#service network restart
-#ip link set eth0 txqueuelen 5000
-#ip link set wg0 txqueuelen 5000
-sysctl -p
+#sysctl -p
 
 # ocserv 0.12.3 tcp 443 udp 443
 yum install ocserv -y 
@@ -86,24 +79,10 @@ chmod 600 /etc/wireguard/wg0.conf
 #wg-quick up wg0
 #wg-quick down wg0
 systemctl enable wg-quick@wg0
-systemctl start wg-quick@wg0
-
-#systemctl start firewalld
-#systemctl enable firewalld
-#firewall-cmd --zone=public --add-port=443/tcp --permanent
-#firewall-cmd --zone=public --add-port=443/udp --permanent
-#firewall-cmd --zone=public --add-port=2443/udp --permanent
-#firewall-cmd --zone=public --add-port=4443/tcp --permanent
-#firewall-cmd --zone=public --add-port=6443/tcp --permanent
-#firewall-cmd --zone=public --add-port=8443/tcp --permanent
-#firewall-cmd --zone=public --add-port=26060/tcp --permanent
-#firewall-cmd --zone=public --add-port=44210/udp --permanent
-#firewall-cmd --zone=trusted --add-interface=wg0 --permanent
-#firewall-cmd --zone=public --add-masquerade --permanent
-#firewall-cmd --reload
+#systemctl start wg-quick@wg0
 
 #ip link set eth0 txqueuelen 5000
 #ip link set wg0 txqueuelen 5000
 #ip link set vpns0 txqueuelen 5000
 
-#reboot
+reboot
