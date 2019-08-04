@@ -47,6 +47,9 @@ iptables-save > /etc/sysconfig/iptables
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf 
 tuned-adm list
 tuned-adm profile network-throughput
+#tuned-adm profile network-latency
+#tuned-adm profile latency-performance
+#tuned-adm profile throughput-performance
 #tuned-adm active
 #echo "net.core.rmem_max = 67108864" >> /etc/sysctl.conf
 #echo "net.core.rmem_default = 12582912" >> /etc/sysctl.conf
