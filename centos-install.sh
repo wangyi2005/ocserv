@@ -23,8 +23,11 @@ systemctl enable v2ray
 wget -O /usr/bin/dingo  https://github.com/pforemski/dingo/releases/download/0.13/dingo-linux-amd64
 chmod +x /usr/bin/dingo
 wget -O /etc/systemd/system/dingo.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dingo.service
+#wget -O /etc/systemd/system/dingo-edns.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dingo-edns.service
 systemctl enable dingo
+#systemctl enable dingo-edns
 #systemctl start dingo
+#systemctl start dingo-edns
 
 # install dnsmasq port 53
 yum -y install dnsmasq
