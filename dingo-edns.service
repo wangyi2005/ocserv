@@ -1,5 +1,5 @@
 [Unit]
-Description=Dingo - DNS over HTTPS
+Description=Dingo EDNS - DNS over HTTPS
 Wants=network.target
 
 [Service]
