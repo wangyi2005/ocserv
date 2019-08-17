@@ -5,6 +5,7 @@ Wants=network.target
 [Service]
 Type=simple
 ExecStart=/usr/bin/dingo -port 5300 -gdns:server 8.8.8.8 -gdns:sni dns.google
+#ExecStart=/usr/bin/dingo -port 5300 -gdns:server 8.8.8.8 -gdns:sni dns.google -gedns 47.246.23.0
 ExecReload=/bin/kill -HUP $MAINPID
 Restart=on-abort
 StandardOutput=null
