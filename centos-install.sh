@@ -35,9 +35,10 @@ wget -O /etc/dnsmasq.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/
 systemctl enable dnsmasq
 #systemctl start dnsmasq
 
-# install PowerDNS Recursor
-yum -y install pdns-recursor
+# install PowerDNS Recursor - https://repo.powerdns.com 
 #yum -y install https://repo.powerdns.com/centos/x86_64/7Server/rec-42/pdns-recursor-4.2.0-1pdns.el7.x86_64.rpm
+wget -O /etc/yum.repos.d/powerdns-rec-42.repo https://repo.powerdns.com/repo-files/centos-rec-42.repo
+yum -y install pdns-recursor
 #nano /etc/pdns-recursor/recursor.conf
 wget -O /etc/pdns-recursor/recursor.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/pdns-recursor.conf 
 systemctl enable pdns-recursor
