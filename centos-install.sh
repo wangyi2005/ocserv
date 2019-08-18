@@ -35,6 +35,13 @@ wget -O /etc/dnsmasq.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/
 systemctl enable dnsmasq
 #systemctl start dnsmasq
 
+# install PowerDNS Recursor
+yum -y install pdns-recursor
+#nano /etc/pdns-recursor/recursor.conf
+wget -O /etc/pdns-recursor/recursor.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/pdns-recursor.conf 
+systemctl enable pdns-recursor
+systemctl start pdns-recursor
+
 # install iptables
 systemctl stop firewalld.service
 systemctl mask firewalld.service
