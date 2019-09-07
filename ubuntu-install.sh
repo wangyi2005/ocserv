@@ -6,7 +6,7 @@ apt-get update -y
 apt-get install wireguard -y
 wget -O /etc/wireguard/wg0.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wg0.conf
 chmod 600 /etc/wireguard/wg0.conf
-systemctl start wg-quick@wg0
+#systemctl start wg-quick@wg0
 systemctl enable wg-quick@wg0
 
 # ip forward bbr
@@ -15,7 +15,7 @@ echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
 echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
 #echo "ip link set eth0 txqueuelen 5000" >> /etc/rc.local
 ##echo "ip link set wg0 txqueuelen 5000" >> /etc/rc.local
-sysctl -p 
+#sysctl -p 
 
 #install v2ray h2,ws,tcp,quic
 #bash <(curl -L -s https://install.direct/go.sh)
@@ -25,21 +25,20 @@ sysctl -p
 #systemctl enable v2ray
 #systemctl start v2ray
 
+# install dingo port 5353 CDN-china-domains
+#wget -O /usr/bin/dingo  https://raw.githubusercontent.com/wangyi2005/ocserv/master/dingo-linux-amd64
+wget -O /usr/bin/dingo  https://github.com/pforemski/dingo/releases/download/0.13/dingo-linux-amd64
+chmod +x /usr/bin/dingo
+wget -O /etc/systemd/system/dingo-ecs-us.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dingo-ecs-us.service
+wget -O /etc/systemd/system/dingo-ecs-cn.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dingo-ecs-cn.service
+systemctl enable dingo-ecs-us
+systemctl enable dingo-ecs-cn
+
 # install dnsmasq
 apt-get install dnsmasq -y
 wget -O /etc/dnsmasq.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dnsmasq.conf
-#wget -O /etc/resolv.dnsmasq.conf  https://raw.githubusercontent.com/wangyi2005/ocserv/master/resolv.dnsmasq.conf
-##wget -O /etc/dnsmasq.d/china-domains.conf  https://raw.githubusercontent.com/wangyi2005/ocserv/master/china-domains.conf
-#wget -O /etc/dnsmasq.d/china-domains.conf  https://raw.githubusercontent.com/wangyi2005/ocserv/master/china-domains-dingo.conf
 systemctl enable dnsmasq
-systemctl restart dnsmasq
-
-# install dingo port 5353 CDN-china-domains
-wget -O /usr/bin/dingo  https://github.com/pforemski/dingo/releases/download/0.13/dingo-linux-amd64
-chmod +x /usr/bin/dingo
-wget -O /etc/systemd/system/dingo.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dingo.service
-systemctl enable dingo
-systemctl start dingo
+#systemctl restart dnsmasq
 
 #set ip rules
 iptables -t nat -A POSTROUTING -j MASQUERADE
