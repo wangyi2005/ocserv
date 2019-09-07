@@ -1,5 +1,6 @@
 # install wireguard
 apt install software-properties-common -y
+apt-get install curl -y
 add-apt-repository ppa:wireguard/wireguard 
 apt-get update -y
 apt-get install wireguard -y
@@ -10,20 +11,19 @@ systemctl enable wg-quick@wg0
 
 # ip forward bbr
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf 
-#echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
-#echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
 #echo "ip link set eth0 txqueuelen 5000" >> /etc/rc.local
 ##echo "ip link set wg0 txqueuelen 5000" >> /etc/rc.local
 sysctl -p 
 
 #install v2ray h2,ws,tcp,quic
-apt-get install curl -y
-bash <(curl -L -s https://install.direct/go.sh)
-wget -O /etc/v2ray/config.json  https://raw.githubusercontent.com/wangyi2005/ocserv/master/v2ray_server.json
-wget -O /etc/v2ray/wy_cer.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wy_cer.pem 
-wget -O /etc/v2ray/wy_key.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wy_key.pem 
-systemctl enable v2ray
-systemctl start v2ray
+#bash <(curl -L -s https://install.direct/go.sh)
+#wget -O /etc/v2ray/config.json  https://raw.githubusercontent.com/wangyi2005/ocserv/master/v2ray_server.json
+#wget -O /etc/v2ray/wy_cer.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wy_cer.pem 
+#wget -O /etc/v2ray/wy_key.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wy_key.pem 
+#systemctl enable v2ray
+#systemctl start v2ray
 
 # install dnsmasq
 apt-get install dnsmasq -y
@@ -42,14 +42,14 @@ systemctl enable dingo
 systemctl start dingo
 
 #set ip rules
-iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+iptables -t nat -A POSTROUTING -j MASQUERADE
 #iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 #iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
 #iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 apt-get install iptables-persistent -y
 iptables-save > /etc/iptables/rules.v4
 
-# install ocserv 0.12.2
+# install ocserv 0.12.4
 #apt-get install ocserv -y
 #apt autoremove
 #wget -O /etc/ocserv/ocserv.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/ocserv.conf
