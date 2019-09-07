@@ -13,6 +13,14 @@ echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
 echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
 echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
 
+apt-get install tuned -y
+tuned-adm list
+tuned-adm profile network-throughput
+#tuned-adm profile network-latency
+#tuned-adm profile latency-performance
+#tuned-adm profile throughput-performance
+#tuned-adm active
+
 # install dingo port 5353 CDN-china-domains
 #wget -O /usr/bin/dingo  https://raw.githubusercontent.com/wangyi2005/ocserv/master/dingo-linux-amd64
 wget -O /usr/bin/dingo  https://github.com/pforemski/dingo/releases/download/0.13/dingo-linux-amd64
