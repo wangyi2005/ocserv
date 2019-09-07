@@ -8,6 +8,14 @@ wget -O /etc/wireguard/wg0.conf   https://raw.githubusercontent.com/wangyi2005/o
 chmod 600 /etc/wireguard/wg0.conf
 systemctl enable wg-quick@wg0
 
+#v2ray tcp ws h2 quic 
+bash <(curl -L -s https://install.direct/go.sh)
+wget -O /etc/v2ray/config.json  https://raw.githubusercontent.com/wangyi2005/ocserv/master/v2ray_server.json
+wget -O /etc/v2ray/wy_cer.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wy_cer.pem 
+wget -O /etc/v2ray/wy_key.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wy_key.pem 
+systemctl enable v2ray
+#systemctl start v2ray
+
 # ip forward bbr
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf 
 echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
