@@ -22,10 +22,10 @@ systemctl enable v2ray
 #wget -O /usr/bin/dingo  https://raw.githubusercontent.com/wangyi2005/ocserv/master/dingo-linux-amd64
 wget -O /usr/bin/dingo  https://github.com/pforemski/dingo/releases/download/0.13/dingo-linux-amd64
 chmod +x /usr/bin/dingo
-wget -O /etc/systemd/system/dingo.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dingo.service
-wget -O /etc/systemd/system/dingo-edns.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dingo-edns.service
-systemctl enable dingo
-systemctl enable dingo-edns
+wget -O /etc/systemd/system/dingo-ecs-us.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dingo-ecs-us.service
+wget -O /etc/systemd/system/dingo-ecs-cn.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dingo-ecs-cn.service
+systemctl enable dingo-ecs-us
+systemctl enable dingo-ecs-cn
 #systemctl start dingo
 #systemctl start dingo-edns
 
