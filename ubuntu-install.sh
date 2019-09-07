@@ -40,4 +40,12 @@ iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 apt-get install iptables-persistent -y
 iptables-save > /etc/iptables/rules.v4
 
+# update kernel  https://kernel.ubuntu.com/~kernel-ppa/mainline/
+#cd ~ && mkdir newkernel && cd newkernel
+#wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.2.13/linux-headers-5.2.13-050213_5.2.13-050213.201909060739_all.deb
+#wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.2.13/linux-headers-5.2.13-050213-generic_5.2.13-050213.201909060739_amd64.deb
+#wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.2.13/linux-image-unsigned-5.2.13-050213-generic_5.2.13-050213.201909060739_arm64.deb
+#wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.2.13/linux-modules-5.2.13-050213-generic_5.2.13-050213.201909060739_amd64.deb
+#dpkg -i *.deb
+
 reboot
