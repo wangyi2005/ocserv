@@ -62,6 +62,10 @@ tuned-adm profile network-throughput
 #tuned-adm profile latency-performance
 #tuned-adm profile throughput-performance
 #tuned-adm active
+# Disable IPv6
+#echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
+#echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf
+
 #echo "net.core.rmem_max = 67108864" >> /etc/sysctl.conf
 #echo "net.core.rmem_default = 12582912" >> /etc/sysctl.conf
 #echo "net.core.wmem_max = 67108864" >> /etc/sysctl.conf
