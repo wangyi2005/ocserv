@@ -1,5 +1,5 @@
 #centos 7 (18.10)
-cat /etc/redhat-release
+#cat /etc/redhat-release
 yum update -y
 yum install wget net-tools -y
 #rpm -qa | grep epel
