@@ -1,8 +1,7 @@
 #centos 7 (18.10)
 cat /etc/redhat-release
 yum update -y
-yum install wget -y
-yum -y install net-tools
+yum install wget net-tools -y
 #rpm -qa | grep epel
 rpm -e epel-release-7-11.noarch
 yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y
