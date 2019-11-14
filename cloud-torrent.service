@@ -3,7 +3,7 @@ Description=cloud-torrent
 
 [Service]
 WorkingDirectory=/cloud-torrent/
-ExecStart=/cloud-torrent/cloud-torrent --port 20180 --log 
+ExecStart=/cloud-torrent/cloud-torrent --port 20180 --log --cert-path /etc/ocserv/server-cert.pem --key-path /etc/ocserv/server-key.pem
 Restart=always
 RestartSec=3
 
