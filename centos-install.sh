@@ -9,6 +9,14 @@ curl -Lo /etc/yum.repos.d/wireguard.repo https://copr.fedorainfracloud.org/coprs
 #yum repolist
 yum install epel-release -y
 
+#install cloud-torrent
+mkdir /cloud-torrent
+wget -O /cloud-torrent/cloud-torrent.gz  https://github.com/jpillora/cloud-torrent/releases/download/0.8.25/cloud-torrent_linux_amd64.gz
+gzip -d /cloud-torrent/cloud-torrent.gz
+chmod +x /cloud-torrent/cloud-torrent
+systemctl enable cloud-torrent
+systemctl start cloud-torrent
+
 #v2ray tcp h2 8443 quic 4443
 bash <(curl -L -s https://install.direct/go.sh)
 wget -O /etc/v2ray/config.json  https://raw.githubusercontent.com/wangyi2005/ocserv/master/v2ray_server.json
