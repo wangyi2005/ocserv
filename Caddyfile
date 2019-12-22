@@ -1,6 +1,6 @@
 wangyi.cf
 {
-  root /var/www/wangyi.cf
+  root /var/www
   tls tanghb2005@gmail.com
   proxy /v2 localhost:6443 {
     websocket
