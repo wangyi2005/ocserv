@@ -1,0 +1,9 @@
+wangyi.cf
+{
+  log ./caddy.log
+  tls tanghb2005@gmail.com
+  proxy /v2 localhost:6443 {
+    websocket
+    header_upstream -Origin
+  }
+}
