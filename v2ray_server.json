@@ -24,25 +24,28 @@
   },
   {
     "port": 6443,
+    "listen": "127.0.0.1",
     "protocol": "vmess",
     "settings": {
       "clients": [
         {
           "id": "60ca58e9-003e-4c01-98de-c2223ae49153",
-          "alterId": 64,
-          "security": "none"
+          "alterId": 64
         }
       ]
     },
     "streamSettings": {
       "network": "ws",
-      "security": "tls",
-      "tlsSettings": {
-        "certificates": [{
-          "certificateFile": "/etc/v2ray/wy_cer.pem", 
-          "keyFile": "/etc/v2ray/wy_key.pem"
-        }]
-      }
+      "wsSettings": {
+         "path": "/v2",
+		  }
+      //"security": "tls",
+      //"tlsSettings": {
+      //  "certificates": [{
+      //    "certificateFile": "/etc/v2ray/wy_cer.pem", 
+      //    "keyFile": "/etc/v2ray/wy_key.pem"
+      //  }]
+      //}
     }
   },             
   {
