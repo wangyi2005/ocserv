@@ -41,7 +41,7 @@ chmod 644 /etc/caddy/Caddyfile
 mkdir /var/www
 chown www-data:www-data /var/www
 chmod 555 /var/www
-wget -O /var/www/Welcome.html https://raw.githubusercontent.com/wangyi2005/ocserv/master/Welcome.html
+wget -O /var/www/index.html https://raw.githubusercontent.com/wangyi2005/ocserv/master/Welcome.html
 wget -O /etc/systemd/system/caddy.service https://raw.githubusercontent.com/caddyserver/caddy/master/dist/init/linux-systemd/caddy.service
 chown root:root /etc/systemd/system/caddy.service
 chmod 644 /etc/systemd/system/caddy.service
