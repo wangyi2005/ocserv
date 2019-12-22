@@ -9,12 +9,6 @@ curl -Lo /etc/yum.repos.d/wireguard.repo https://copr.fedorainfracloud.org/coprs
 #yum repolist
 yum install epel-release -y
 
-# nginx v2ray ws
-yum install nginx
-wget -O  /etc/nginx/conf.d/nginx-v2ray.conf https://raw.githubusercontent.com/wangyi2005/ocserv/master/nginx-v2ray.conf
-systemctl enable nginx
-#systemctl start nginx
-
 #v2ray tcp h2 8443 quic 4443
 bash <(curl -L -s https://install.direct/go.sh)
 wget -O /etc/v2ray/config.json  https://raw.githubusercontent.com/wangyi2005/ocserv/master/v2ray_server.json
@@ -22,6 +16,12 @@ wget -O /etc/v2ray/wy_cer.pem   https://raw.githubusercontent.com/wangyi2005/ocs
 wget -O /etc/v2ray/wy_key.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wy_key.pem 
 systemctl enable v2ray
 #systemctl start v2ray
+
+# nginx v2ray ws
+yum install nginx
+wget -O  /etc/nginx/conf.d/nginx-v2ray.conf https://raw.githubusercontent.com/wangyi2005/ocserv/master/nginx-v2ray.conf
+systemctl enable nginx
+#systemctl start nginx
 
 # install dingo port 5353 CDN-china-domains
 #wget -O /usr/bin/dingo  https://raw.githubusercontent.com/wangyi2005/ocserv/master/dingo-linux-amd64
