@@ -1,6 +1,6 @@
 wangyi.cf
 {
-  log ./caddy.log
+  root /var/www/wangyi.cf
   tls tanghb2005@gmail.com
   proxy /v2 localhost:6443 {
     websocket
