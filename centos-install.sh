@@ -41,9 +41,9 @@ chmod 644 /etc/caddy/Caddyfile
 mkdir /var/www
 chown www-data:www-data /var/www
 chmod 555 /var/www
-cp -R example.com /var/www/
-chown -R www-data:www-data /var/www/example.com
-chmod -R 555 /var/www/example.com
+#cp -R example.com /var/www/wangyi.cf
+chown -R www-data:www-data /var/www/wangyi.cf
+chmod -R 555 /var/www
 wget -O /etc/systemd/system/caddy.service https://raw.githubusercontent.com/caddyserver/caddy/master/dist/init/linux-systemd/caddy.service
 chown root:root /etc/systemd/system/caddy.service
 chmod 644 /etc/systemd/system/caddy.service
