@@ -23,6 +23,33 @@ wget -O  /etc/nginx/conf.d/nginx-v2ray.conf https://raw.githubusercontent.com/wa
 systemctl enable nginx
 #systemctl start nginx
 
+# caddy
+curl https://getcaddy.com | bash -s personal
+chown root:root /usr/local/bin/caddy
+chmod 755 /usr/local/bin/caddy
+setcap 'cap_net_bind_service=+ep' /usr/local/bin/caddy
+groupadd -g 33 www-data
+useradd -g www-data --no-user-group --home-dir /var/www --no-create-home --shell /usr/sbin/nologin --system --uid 33 www-data
+mkdir /etc/caddy
+chown -R root:root /etc/caddy
+mkdir /etc/ssl/caddy
+chown -R root:www-data /etc/ssl/caddy
+chmod 0770 /etc/ssl/caddy
+wget -O /etc/caddy/Caddyfile https://raw.githubusercontent.com/wangyi2005/ocserv/master/Caddyfile
+chown root:root /etc/caddy/Caddyfile
+chmod 644 /etc/caddy/Caddyfile
+mkdir /var/www
+chown www-data:www-data /var/www
+chmod 555 /var/www
+cp -R example.com /var/www/
+chown -R www-data:www-data /var/www/example.com
+chmod -R 555 /var/www/example.com
+wget -O /etc/systemd/system/caddy.service https://raw.githubusercontent.com/caddyserver/caddy/master/dist/init/linux-systemd/caddy.service
+chown root:root /etc/systemd/system/caddy.service
+chmod 644 /etc/systemd/system/caddy.service
+systemctl enable caddy.service
+#systemctl start caddy.service
+
 # install dingo port 5353 CDN-china-domains
 #wget -O /usr/bin/dingo  https://raw.githubusercontent.com/wangyi2005/ocserv/master/dingo-linux-amd64
 wget -O /usr/bin/dingo  https://github.com/pforemski/dingo/releases/download/0.13/dingo-linux-amd64
