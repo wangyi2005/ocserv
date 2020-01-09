@@ -20,7 +20,7 @@ gost.wangyi.cf
 {
   root /var/www
   tls tanghb2005@gmail.com
-  proxy /ws localhost:8080 {
+  proxy / localhost:8080 {
     websocket
     header_upstream -Origin
   }
