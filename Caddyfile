@@ -2,7 +2,7 @@ wangyi.cf
 {
   root /var/www
   tls tanghb2005@gmail.com
-  proxy /v2 localhost:6443 {
+  proxy /ws localhost:6443 {
     websocket
     header_upstream -Origin
   }
@@ -11,7 +11,16 @@ www.wangyi.cf
 {
   root /var/www
   tls tanghb2005@gmail.com
-  proxy /v2 localhost:6443 {
+  proxy /ws localhost:6443 {
+    websocket
+    header_upstream -Origin
+  }
+}
+gost.wangyi.cf
+{
+  root /var/www
+  tls tanghb2005@gmail.com
+  proxy /ws localhost:8080 {
     websocket
     header_upstream -Origin
   }
