@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Type=simple
 User=nobody
-ExecStart=/gost/gost -L mws://:8080
+ExecStart=/user/bin/gost -L mws://:8080
 
 [Install]
 WantedBy=multi-user.target
