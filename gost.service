@@ -1,0 +1,11 @@
+[Unit]
+Description=GO Simple Tunnel
+After=network.target
+
+[Service]
+Type=simple
+User=nobody
+ExecStart=/gost/gost -L mws://:8080
+
+[Install]
+WantedBy=multi-user.target
