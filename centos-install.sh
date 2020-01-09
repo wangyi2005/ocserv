@@ -17,6 +17,14 @@ wget -O /etc/v2ray/wy_key.pem   https://raw.githubusercontent.com/wangyi2005/ocs
 systemctl enable v2ray
 #systemctl start v2ray
 
+# install gost
+wget -O /usr/bin/gost.gz  https://github.com/ginuerzh/gost/releases/download/v2.8.2/gost-linux-amd64-2.8.2.gz
+gzip -d /usr/bin/gost.gz
+chmod +x /usr/bin/gost
+wget -O /etc/systemd/system/gost.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/gost.service
+systemctl enable gost
+#systemctl start gost
+
 # nginx v2ray ws
 yum install nginx
 wget -O  /etc/nginx/conf.d/nginx-v2ray.conf https://raw.githubusercontent.com/wangyi2005/ocserv/master/nginx-v2ray.conf
