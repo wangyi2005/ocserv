@@ -16,8 +16,10 @@
       "security": "tls",
       "tlsSettings": {
         "certificates": [{
-          "certificateFile": "/etc/v2ray/wy_cer.pem", 
-          "keyFile": "/etc/v2ray/wy_key.pem"
+         // "certificateFile": "/etc/v2ray/wy_cer.pem", 
+         // "keyFile": "/etc/v2ray/wy_key.pem"
+	  "certificateFile": "/etc/ssl/caddy/acme/acme-v02.api.letsencrypt.org/sites/www.wangyi.cf/www.wangyi.cf.crt", 
+          "keyFile": "/etc/ssl/caddy/acme/acme-v02.api.letsencrypt.org/sites/www.wangyi.cf/www.wangyi.cf.key" 
         }]
       }
     }
