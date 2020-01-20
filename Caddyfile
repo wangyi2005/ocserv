@@ -7,6 +7,14 @@ wangyi.cf
     header_upstream -Origin
   }
 }
+ct.wangyi.cf
+{
+  root /var/www
+  tls tanghb@outlook.com
+  proxy / localhost:20180 {
+    websocket
+  }
+}
 www.wangyi.cf
 {
   root /var/www
