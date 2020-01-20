@@ -133,6 +133,7 @@ mkdir /cloud-torrent
 wget -O /cloud-torrent/cloud-torrent.gz  https://github.com/jpillora/cloud-torrent/releases/download/0.8.25/cloud-torrent_linux_amd64.gz
 gzip -d /cloud-torrent/cloud-torrent.gz
 chmod +x /cloud-torrent/cloud-torrent
+wget -O /etc/systemd/system/cloud-torrent.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/cloud-torrent.service
 systemctl enable cloud-torrent
 #systemctl start cloud-torrent
 
