@@ -1,0 +1,10 @@
+
+[Unit]
+Description=sniproxy server
+     
+[Service]
+Restart=always
+ExECStart=/usr/sbin/sniproxy -f -c /etc/sniproxy.conf
+   
+[Install]
+WantedBy=multi-user.target
