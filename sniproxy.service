@@ -5,7 +5,7 @@ After=network-online.target
      
 [Service]
 Restart=always
-ExECStart=/usr/sbin/sniproxy -f -c /etc/sniproxy.conf
+ExecStart=/usr/sbin/sniproxy -f -c /etc/sniproxy.conf
 ExecReload=/bin/kill -HUP $MAINPID
 
 [Install]
