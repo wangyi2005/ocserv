@@ -1,6 +1,7 @@
 
 [Unit]
 Description=sniproxy server
+After=network.target
      
 [Service]
 Restart=always
