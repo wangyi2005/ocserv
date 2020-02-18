@@ -18,8 +18,8 @@ systemctl enable v2ray
 #systemctl start v2ray
 
 # install sniproxy
-wget -O /usr/bin/sniproxy-0.6.rpm  https://github.com/ginuerzh/gost/releases/download/v2.8.2/sniproxy-0.6.rpm
-yun install /usr/bin/sniproxy-0.6.rpm
+wget -O /usr/bin/sniproxy.rpm  https://raw.githubusercontent.com/wangyi2005/ocserv/master/sniproxy-0.6.0.rpm
+yum install /usr/bin/sniproxy.rpm
 wget -O /etc/systemd/system/sniproxy.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/sniproxy.service
 wget -O /etc/sniproxy.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/sniproxy.conf
 systemctl enable sniproxy
