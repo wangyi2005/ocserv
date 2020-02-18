@@ -1,11 +1,12 @@
 
 [Unit]
 Description=sniproxy server
-After=network.target
+After=network-online.target
      
 [Service]
 Restart=always
 ExECStart=/usr/sbin/sniproxy -f -c /etc/sniproxy.conf
-   
+ExecReload=/bin/kill -HUP $MAINPID
+
 [Install]
 WantedBy=multi-user.target
