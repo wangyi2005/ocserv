@@ -40,6 +40,7 @@ systemctl enable nginx
 
 # caddy
 curl https://getcaddy.com | bash -s personal
+#curl https://getcaddy.com | bash -s personal http.cors
 chown root:root /usr/local/bin/caddy
 chmod 755 /usr/local/bin/caddy
 setcap 'cap_net_bind_service=+ep' /usr/local/bin/caddy
