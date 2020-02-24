@@ -3,7 +3,7 @@ Description=cloud-torrent
 
 [Service]
 WorkingDirectory=/ct/
-ExecStart=/cloud-torrent/cloud-torrent --port 20180 --host localhost -r /etc/ssl/caddy/acme/acme-v02.api.letsencrypt.org/sites/ct.wangyi.cf/ct.wangyi.cf.crt -k /etc/ssl/caddy/acme/acme-v02.api.letsencrypt.org/sites/ct.wangyi.cf/ct.wangyi.cf.key
+ExecStart=/ct/ct --port 20180 --host localhost -r /etc/ssl/caddy/acme/acme-v02.api.letsencrypt.org/sites/ct.wangyi.cf/ct.wangyi.cf.crt -k /etc/ssl/caddy/acme/acme-v02.api.letsencrypt.org/sites/ct.wangyi.cf/ct.wangyi.cf.key
 Restart=always
 RestartSec=3
 
