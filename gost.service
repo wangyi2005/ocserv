@@ -6,7 +6,7 @@ After=network.target
 Type=simple
 User=nobody
 #ExecStart=/usr/bin/gost -L mws://127.0.0.1:8080
-ExecStart=/usr/bin/gost -L http2://127.0.0.1:8080?cert=/path/to/my/cert/file&key=/path/to/my/key/file
+ExecStart=/usr/bin/gost -L http2://127.0.0.1:8080?cert=/etc/ssl/caddy/acme/acme-v02.api.letsencrypt.org/sites/gost.wangyi.cf/gost.wangyi.cf.crt&key=/etc/ssl/caddy/acme/acme-v02.api.letsencrypt.org/sites/gost.wangyi.cf/gost.wangyi.cf.key
 
 [Install]
 WantedBy=multi-user.target
