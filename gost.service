@@ -5,7 +5,8 @@ After=network.target
 [Service]
 Type=simple
 User=nobody
-ExecStart=/usr/bin/gost -L mws://127.0.0.1:8080
+#ExecStart=/usr/bin/gost -L mws://127.0.0.1:8080
+ExecStart=/usr/bin/gost -L http2://127.0.0.1:8080?cert=/path/to/my/cert/file&key=/path/to/my/key/file
 
 [Install]
 WantedBy=multi-user.target
