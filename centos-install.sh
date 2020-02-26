@@ -39,7 +39,7 @@ systemctl enable nginx
 #systemctl start nginx
 
 # caddy
-curl https://getcaddy.com | bash -s personal
+curl https://getcaddy.com | bash -s personal tls.dns.cloudflare
 #curl https://getcaddy.com | bash -s personal http.cors
 chown root:root /usr/local/bin/caddy
 chmod 755 /usr/local/bin/caddy
