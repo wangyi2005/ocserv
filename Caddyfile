@@ -11,7 +11,7 @@ oc.wangyi.cf
 {
   root /var/www
   tls tanghb@outlook.com
-  proxy / localhost:8443 {
+  proxy / localhost:4430 {
     websocket
   }
 }
@@ -37,6 +37,15 @@ gost.wangyi.cf
   root /var/www
   tls tanghb2005@gmail.com
   proxy / localhost:8080 {
+    websocket
+    header_upstream -Origin
+  }
+}
+v2.wangyi.cf
+{
+  root /var/www
+  tls tanghb2005@gmail.com
+  proxy / localhost:6443 {
     websocket
     header_upstream -Origin
   }
