@@ -3,7 +3,7 @@
 yum update -y
 yum install wget net-tools -y
 #rpm -qa | grep epel
-rpm -e epel-release-7-11.noarch
+#rpm -e epel-release-7-11.noarch
 yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y
 curl -Lo /etc/yum.repos.d/jdoss-wireguard-epel-7.repo https://copr.fedorainfracloud.org/coprs/jdoss/wireguard/repo/epel-7/jdoss-wireguard-epel-7.repo
 #yum repolist
@@ -165,9 +165,9 @@ wget -O /etc/systemd/system/cloud-torrent.service   https://raw.githubuserconten
 systemctl enable cloud-torrent
 #systemctl start cloud-torrent
 
-# wireguard 
+# wireguard need reboot
 mkdir /etc/wireguard 
-yum --enablerepo=elrepo-kernel install kernel-ml kernel-ml-headers kernel-ml-devel -y
+#yum --enablerepo=elrepo-kernel install kernel-ml kernel-ml-headers kernel-ml-devel -y
 yum install wireguard-dkms wireguard-tools -y
 wget -O /etc/wireguard/wg0.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wg0.conf
 chmod 600 /etc/wireguard/wg0.conf
