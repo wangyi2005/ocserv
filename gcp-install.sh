@@ -5,13 +5,14 @@
 # manage network：IP forward
 # setup firewall rule: accept udp 443
 
-# root，putty
+# SSH browser
 sudo -i 
 nano /etc/ssh/sshd_config
 # PermitRootLogin yes
 # PasswordAuthentication yes
 passwd root
 
+# root，putty
 #BBR，ip_forward
 nano /etc/sysctl.conf
 net.core.default_qdisc=fq
