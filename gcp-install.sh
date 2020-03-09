@@ -3,6 +3,8 @@
 # machine： 1cpu 600M 10G
 # OS: ubuntu 19.10
 # manage network：IP forward
+# setup firewall rule: accept udp 443
+
 # root，putty
 sudo -i 
 nano /etc/ssh/sshd_config
