@@ -19,6 +19,16 @@ net.core.default_qdisc=fq
 net.ipv4.tcp_congestion_control=bbr
 net.ipv4.ip_forward = 1
 
+rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+yum install https://www.elrepo.org/elrepo-release-7.0-4.el7.elrepo.noarch.rpm
+rpm -qa | grep kernel
+yum remove.....
+yum install --enablerepo=elrepo-kernel kernel-ml kernel-ml-headers kernel-ml-devel kernel-ml-tools kernel-ml-tools-libs
+grub2-set-default 0
+grub2-mkconfig -o /etc/grub2.cfg
+reboot
+yum remove.....
+
 # disbable systemd-resolved
 systemctl stop systemd-resolved
 systemctl disable systemd-resolved
