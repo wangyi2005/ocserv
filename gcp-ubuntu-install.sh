@@ -39,15 +39,22 @@ mtu = 1400
 # install dingo
 wget -O /usr/bin/dingo  https://github.com/pforemski/dingo/releases/download/0.13/dingo-linux-amd64
 chmod +x /usr/bin/dingo
-nano /etc/systemd/system/dingo-ecs-cn.service 
+nano /etc/systemd/system/dingo-ecs-cn.service
+#before=dnsmasq.service
 systemctl enable dingo-ecs-cn
 
 #install dnsmasq
-apt-get install dnsmasq 
+apt-get install dnsmasq
+nano /etc/dnsmasq.conf
+nano nano /etc/systemd/system/sniproxy.service 
 #onedrive,github
+#after=wg-quick@wg0.service
 
 #install sniproxy 0.6
 apt-get install sniproxy
+nano /etc/systemd/system/sniproxy.service 
+#after=wg-quick@wg0.service
+nano /etc/sniproxy.conf
 
 reboot
 
