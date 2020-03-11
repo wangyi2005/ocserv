@@ -36,6 +36,12 @@ PostUp   = iptables -t nat -A POSTROUTING -o ens4 -j MASQUERADE
 PostDown = iptables -t nat -D POSTROUTING -o ens4 -j MASQUERADE
 mtu = 1400
 
+# install dingo
+wget -O /usr/bin/dingo  https://github.com/pforemski/dingo/releases/download/0.13/dingo-linux-amd64
+chmod +x /usr/bin/dingo
+nano /etc/systemd/system/dingo-ecs-cn.service 
+systemctl enable dingo-ecs-cn
+
 #install dnsmasq
 apt-get install dnsmasq 
 #onedrive,github
