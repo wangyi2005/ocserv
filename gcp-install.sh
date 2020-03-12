@@ -19,6 +19,8 @@ net.core.default_qdisc=fq
 net.ipv4.tcp_congestion_control=bbr
 net.ipv4.ip_forward = 1
 
+lsmod | grep bbr
+cat /etc/os-release
 #centos upgrade kernel
 #https://elrepo.org/tiki/kernel-ml https://elrepo.org/tiki/kernel-lt
 rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
