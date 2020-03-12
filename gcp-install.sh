@@ -1,8 +1,8 @@
 # GCP console
 # area: asia-east-1 Taiwan
+# area: asia-east-2 HK
 # machine： 1cpu 600M 10G
-# OS: ubuntu 19.10
-# manage network：IP forward
+# OS: ubuntu 19.10，centos7
 # setup firewall rule: accept udp 443
 
 # SSH browser
@@ -19,21 +19,23 @@ net.core.default_qdisc=fq
 net.ipv4.tcp_congestion_control=bbr
 net.ipv4.ip_forward = 1
 
+#centos upgrade kernel
+#https://elrepo.org/tiki/kernel-ml https://elrepo.org/tiki/kernel-lt
 rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
 yum install https://www.elrepo.org/elrepo-release-7.0-4.el7.elrepo.noarch.rpm
 rpm -qa | grep kernel
-yum remove.....
+yum remove.....old kernel tools
 yum install --enablerepo=elrepo-kernel kernel-ml kernel-ml-headers kernel-ml-devel kernel-ml-tools kernel-ml-tools-libs
 grub2-set-default 0
 grub2-mkconfig -o /etc/grub2.cfg
 reboot
-yum remove.....
+yum remove.....old kernel
 
-# disbable systemd-resolved
+# Ubuntu disbable systemd-resolved
 systemctl stop systemd-resolved
 systemctl disable systemd-resolved
 
-#install wireguard
+#Ubuntu  install wireguard
 add-apt-repository ppa:wireguard/wireguard
 apt-get update
 apt-get install wireguard
