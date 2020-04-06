@@ -96,6 +96,7 @@ systemctl mask firewalld.service
 
 yum install iptables-services  -y
 iptables -t nat -A POSTROUTING -s 192.168.88.0/24 -o eth0 -j MASQUERADE
+iptables -t mangle -A POSTROUTING -o eth0 -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1380 
 iptables -t mangle -A FORWARD -o eth0 -p tcp -m tcp --tcp-flags SYN,RST SYN -s 172.16.16.0/24 -m tcpmss --mss 1361:1536 -j TCPMSS --set-mss 1360
 iptables -t mangle -A FORWARD -s 192.168.88.0/24 -o eth0 -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
 #iptables -A FORWARD -i wg0 -j ACCEPT
