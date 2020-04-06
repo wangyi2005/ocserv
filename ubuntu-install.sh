@@ -9,11 +9,11 @@ chmod 600 /etc/wireguard/wg0.conf
 systemctl enable wg-quick@wg0
 
 #v2ray tcp ws h2 quic 
-bash <(curl -L -s https://install.direct/go.sh)
-wget -O /etc/v2ray/config.json  https://raw.githubusercontent.com/wangyi2005/ocserv/master/v2ray_server.json
-wget -O /etc/v2ray/wy_cer.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wy_cer.pem 
-wget -O /etc/v2ray/wy_key.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wy_key.pem 
-systemctl enable v2ray
+#bash <(curl -L -s https://install.direct/go.sh)
+#wget -O /etc/v2ray/config.json  https://raw.githubusercontent.com/wangyi2005/ocserv/master/v2ray_server.json
+#wget -O /etc/v2ray/wy_cer.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wy_cer.pem 
+#wget -O /etc/v2ray/wy_key.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wy_key.pem 
+#systemctl enable v2ray
 #systemctl start v2ray
 
 # ip forward bbr
@@ -22,8 +22,8 @@ echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
 #echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
 
 # Disable IPv6
-echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
-echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf
+#echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
+#echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf
 
 apt-get install tuned -y
 tuned-adm list
@@ -48,16 +48,16 @@ wget -O /etc/dnsmasq.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/
 systemctl enable dnsmasq
 
 #set ip rules
-iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-apt-get install iptables-persistent -y
-iptables-save > /etc/iptables/rules.v4
+#iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+#apt-get install iptables-persistent -y
+#iptables-save > /etc/iptables/rules.v4
 
 # update kernel  https://kernel.ubuntu.com/~kernel-ppa/mainline/
 #cd ~ && mkdir newkernel && cd newkernel
-#wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.2.13/linux-headers-5.2.13-050213_5.2.13-050213.201909060739_all.deb
-#wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.2.13/linux-headers-5.2.13-050213-generic_5.2.13-050213.201909060739_amd64.deb
-#wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.2.13/linux-image-unsigned-5.2.13-050213-generic_5.2.13-050213.201909060739_arm64.deb
-#wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.2.13/linux-modules-5.2.13-050213-generic_5.2.13-050213.201909060739_amd64.deb
+#wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.6.2/linux-headers-5.6.2-050602_5.6.2-050602.202004020822_all.deb
+#wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.6.2/linux-headers-5.6.2-050602-generic_5.6.2-050602.202004020822_amd64.deb
+#wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.6.2/linux-image-unsigned-5.6.2-050602-generic_5.6.2-050602.202004020822_amd64.deb
+#wgethttps://kernel.ubuntu.com/~kernel-ppa/mainline/v5.6.2/linux-modules-5.6.2-050602-generic_5.6.2-050602.202004020822_amd64.deb
 #dpkg -i *.deb
 
 reboot
