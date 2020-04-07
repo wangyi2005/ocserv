@@ -47,6 +47,11 @@ apt-get install dnsmasq -y
 wget -O /etc/dnsmasq.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dnsmasq.conf
 systemctl enable dnsmasq
 
+# install haproxy
+apt-get install haproxy -y
+wget -O /etc/haproxy/haproxy.cfg   https://raw.githubusercontent.com/wangyi2005/ocserv/master/haproxy.cfg
+systemctl enable haproxy
+
 #set ip rules
 #iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 #apt-get install iptables-persistent -y
