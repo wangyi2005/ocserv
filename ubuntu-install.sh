@@ -7,21 +7,13 @@
 # install wireguard
 apt install software-properties-common -y
 #apt-get install curl -y
-#19.10 older
+#19.10 still 
 add-apt-repository ppa:wireguard/wireguard 
 apt-get update -y
 apt-get install wireguard -y
 wget -O /etc/wireguard/wg0.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wg0.conf
 chmod 600 /etc/wireguard/wg0.conf
 systemctl enable wg-quick@wg0
-
-#v2ray tcp ws h2 quic 
-#bash <(curl -L -s https://install.direct/go.sh)
-#wget -O /etc/v2ray/config.json  https://raw.githubusercontent.com/wangyi2005/ocserv/master/v2ray_server.json
-#wget -O /etc/v2ray/wy_cer.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wy_cer.pem 
-#wget -O /etc/v2ray/wy_key.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wy_key.pem 
-#systemctl enable v2ray
-#systemctl start v2ray
 
 # ip forward bbr
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf 
@@ -59,11 +51,6 @@ apt-get install sniproxy -y
 wget -O /etc/sniproxy.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/sniproxy.conf
 wget -O /etc/systemd/system/sniproxy.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/sniproxy.service
 systemctl enable sniproxy
-
-#set ip rules
-#iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-#apt-get install iptables-persistent -y
-#iptables-save > /etc/iptables/rules.v4
 
 # update kernel  https://kernel.ubuntu.com/~kernel-ppa/mainline/
 #cd ~ && mkdir newkernel && cd newkernel
