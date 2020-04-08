@@ -1,4 +1,5 @@
 #debian 9 to 10 
+echo "deb http://deb.debian.org/debian buster-backports main" >> /etc/apt/sources.list
 apt-get update
 apt-get -y upgrade
 #apt-get -y dist-upgrade
