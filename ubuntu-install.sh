@@ -50,8 +50,8 @@ systemctl enable dnsmasq
 # install sniproxy 0.5.0 first
 apt-get install sniproxy -y
 #https://packages.ubuntu.com/disco/amd64/sniproxy/download
-wget -O /usr/bin/sniproxy.deb https://raw.githubusercontent.com/wangyi2005/ocserv/master/sniproxy_0.6.0-1_amd64.deb
-dpkg -i /usr/bin/sniproxy.deb
+#wget -O /usr/bin/sniproxy.deb https://raw.githubusercontent.com/wangyi2005/ocserv/master/sniproxy_0.6.0-1_amd64.deb
+#dpkg -i /usr/bin/sniproxy.deb
 wget -O /etc/sniproxy.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/sniproxy.conf
 wget -O /etc/systemd/system/sniproxy.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/sniproxy.service
 systemctl enable sniproxy
