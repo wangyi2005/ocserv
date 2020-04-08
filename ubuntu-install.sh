@@ -7,7 +7,8 @@
 # install wireguard
 apt install software-properties-common -y
 #apt-get install curl -y
-#add-apt-repository ppa:wireguard/wireguard 
+#19.10 older
+add-apt-repository ppa:wireguard/wireguard 
 apt-get update -y
 apt-get install wireguard -y
 wget -O /etc/wireguard/wg0.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wg0.conf
@@ -53,7 +54,7 @@ apt-get install dnsmasq -y
 wget -O /etc/dnsmasq.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dnsmasq.conf
 systemctl enable dnsmasq
 
-# install sniproxy
+# install sniproxy 0.6.0
 apt-get install sniproxy -y
 wget -O /etc/sniproxy.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/sniproxy.conf
 systemctl enable sniproxy
