@@ -57,6 +57,7 @@ systemctl enable dnsmasq
 # install sniproxy 0.6.0
 apt-get install sniproxy -y
 wget -O /etc/sniproxy.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/sniproxy.conf
+wget -O /etc/systemd/system/sniproxy.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/sniproxy.service
 systemctl enable sniproxy
 
 #set ip rules
