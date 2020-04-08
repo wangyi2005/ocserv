@@ -1,7 +1,13 @@
+#ubuntu 18 to 19
+#apt update && apt upgrade && apt dist-upgrade && apt autoremove
+#apt-get install update-manager-core
+#nano /etc/update-manager/release-upgrades (Prompt=normal)
+#do-release-upgrade
+
 # install wireguard
 apt install software-properties-common -y
-apt-get install curl -y
-add-apt-repository ppa:wireguard/wireguard 
+#apt-get install curl -y
+#add-apt-repository ppa:wireguard/wireguard 
 apt-get update -y
 apt-get install wireguard -y
 wget -O /etc/wireguard/wg0.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wg0.conf
@@ -18,16 +24,16 @@ systemctl enable wg-quick@wg0
 
 # ip forward bbr
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf 
-#echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
-#echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
 
 # Disable IPv6
 #echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
 #echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf
 
-apt-get install tuned -y
-tuned-adm list
-tuned-adm profile network-throughput
+#apt-get install tuned -y
+#tuned-adm list
+#tuned-adm profile network-throughput
 #tuned-adm profile network-latency
 #tuned-adm profile latency-performance
 #tuned-adm profile throughput-performance
@@ -47,10 +53,10 @@ apt-get install dnsmasq -y
 wget -O /etc/dnsmasq.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dnsmasq.conf
 systemctl enable dnsmasq
 
-# install haproxy
-apt-get install haproxy -y
-wget -O /etc/haproxy/haproxy.cfg   https://raw.githubusercontent.com/wangyi2005/ocserv/master/haproxy.cfg
-systemctl enable haproxy
+# install sniproxy
+apt-get install sniproxy -y
+wget -O /etc/sniproxy.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/sniproxy.conf
+systemctl enable sniproxy
 
 #set ip rules
 #iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
