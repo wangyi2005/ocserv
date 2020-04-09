@@ -118,6 +118,9 @@ tuned-adm profile network-throughput
 #echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf
 
 #https://shadowsocks.org/en/config/advanced.html
+https://klaver.it/linux/sysctl.conf
+https://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt
+
 #fs.file-max = 51200
 #net.core.rmem_max = 67108864
 #net.core.wmem_max = 67108864
