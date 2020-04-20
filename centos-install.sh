@@ -4,8 +4,10 @@ yum update -y
 yum install wget net-tools -y
 #rpm -qa | grep epel
 #rpm -e epel-release-7-11.noarch
-yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y
-curl -Lo /etc/yum.repos.d/jdoss-wireguard-epel-7.repo https://copr.fedorainfracloud.org/coprs/jdoss/wireguard/repo/epel-7/jdoss-wireguard-epel-7.repo
+yum install epel-release https://www.elrepo.org/elrepo-release-7.el7.elrepo.noarch.rpm
+yum install yum-plugin-elrepo
+yum install kmod-wireguard wireguard-tools
+#curl -Lo /etc/yum.repos.d/jdoss-wireguard-epel-7.repo https://copr.fedorainfracloud.org/coprs/jdoss/wireguard/repo/epel-7/jdoss-wireguard-epel-7.repo
 #yum repolist
 #yum install epel-release -y
 
