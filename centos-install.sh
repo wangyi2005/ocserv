@@ -96,17 +96,17 @@ systemctl enable dnsmasq
 systemctl stop firewalld.service
 systemctl mask firewalld.service
 
-yum install iptables-services  -y
-iptables -t nat -A POSTROUTING -s 192.168.88.0/24 -o eth0 -j MASQUERADE
-iptables -t mangle -A POSTROUTING -o eth0 -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1380 
-iptables -t mangle -A FORWARD -o eth0 -p tcp -m tcp --tcp-flags SYN,RST SYN -s 172.16.16.0/24 -m tcpmss --mss 1361:1536 -j TCPMSS --set-mss 1360
-iptables -t mangle -A FORWARD -s 192.168.88.0/24 -o eth0 -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
+#yum install iptables-services  -y
+#iptables -t nat -A POSTROUTING -s 192.168.88.0/24 -o eth0 -j MASQUERADE
+#iptables -t mangle -A POSTROUTING -o eth0 -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1380 
+#iptables -t mangle -A FORWARD -o eth0 -p tcp -m tcp --tcp-flags SYN,RST SYN -s 172.16.16.0/24 -m tcpmss --mss 1361:1536 -j TCPMSS --set-mss 1360
+#iptables -t mangle -A FORWARD -s 192.168.88.0/24 -o eth0 -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
 #iptables -A FORWARD -i wg0 -j ACCEPT
 #iptables -A FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
 #iptables -A FORWARD -s 192.168.88.0/255.255.255.0 -i eth0 -o eth1 -m conntrack --ctstate NEW -j ACCEPT
 #iptables -A FORWARD -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
 #iptables -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1380 
-iptables-save > /etc/sysconfig/iptables
+#iptables-save > /etc/sysconfig/iptables
 #iptables-restore < /etc/sysconfig/iptables
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf 
 tuned-adm list
@@ -120,8 +120,8 @@ tuned-adm profile network-throughput
 #echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf
 
 #https://shadowsocks.org/en/config/advanced.html
-https://klaver.it/linux/sysctl.conf
-https://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt
+#https://klaver.it/linux/sysctl.conf
+#https://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt
 
 #fs.file-max = 51200
 #net.core.rmem_max = 67108864
@@ -176,7 +176,7 @@ systemctl enable cloud-torrent
 # wireguard need reboot
 mkdir /etc/wireguard 
 #yum --enablerepo=elrepo-kernel install kernel-ml kernel-ml-headers kernel-ml-devel -y
-yum install wireguard-dkms wireguard-tools -y
+#yum install wireguard-dkms wireguard-tools -y
 wget -O /etc/wireguard/wg0.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wg0.conf
 chmod 600 /etc/wireguard/wg0.conf
 #wg-quick up wg0
