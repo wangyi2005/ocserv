@@ -93,8 +93,8 @@ systemctl enable dnsmasq
 #systemctl start pdns-recursor
 
 # install iptables
-systemctl stop firewalld.service
-systemctl mask firewalld.service
+#systemctl stop firewalld.service
+#systemctl mask firewalld.service
 
 #yum install iptables-services  -y
 #iptables -t nat -A POSTROUTING -s 192.168.88.0/24 -o eth0 -j MASQUERADE
@@ -142,16 +142,16 @@ tuned-adm profile network-throughput
 #net.ipv4.tcp_wmem = 4096 65536 67108864
 #net.ipv4.tcp_mtu_probing = 1
 
-#echo "net.core.rmem_max = 67108864" >> /etc/sysctl.conf
-#echo "net.core.rmem_default = 12582912" >> /etc/sysctl.conf
-#echo "net.core.wmem_max = 67108864" >> /etc/sysctl.conf
-#echo "net.core.wmem_default = 12582912" >> /etc/sysctl.conf
-#echo "net.ipv4.tcp_rmem = 4096 87380 33554432" >> /etc/sysctl.conf
-#echo "net.ipv4.tcp_wmem = 4096 65536 33554432" >> /etc/sysctl.conf
-#echo "net.ipv4.tcp_mtu_probing=1" >> /etc/sysctl.conf
-#echo "net.core.netdev_max_backlog = 5000" >> /etc/sysctl.conf
-#echo 'net.ipv4.tcp_window_scaling = 1' >> /etc/sysctl.conf
+# echo 'net.core.wmem_max=12582912' >> /etc/sysctl.conf
+# echo 'net.core.rmem_max=12582912' >> /etc/sysctl.conf
+# echo 'net.ipv4.tcp_rmem= 10240 87380 12582912' >> /etc/sysctl.conf
+# echo 'net.ipv4.tcp_wmem= 10240 87380 12582912' >> /etc/sysctl.conf
+# echo 'net.ipv4.tcp_window_scaling = 1' >> /etc/sysctl.conf
+# echo 'net.ipv4.tcp_timestamps = 1' >> /etc/sysctl.conf
+# echo 'net.ipv4.tcp_sack = 1' >> /etc/sysctl.conf
+# echo 'net.core.netdev_max_backlog = 5000' >> /etc/sysctl.conf
 #sysctl -p
+
 
 # ocserv 0.12.3 tcp 443 udp 443
 yum install ocserv -y 
