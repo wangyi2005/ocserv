@@ -71,8 +71,8 @@ systemctl enable caddy.service
 wget -O /usr/bin/dingo  https://github.com/pforemski/dingo/releases/download/0.13/dingo-linux-amd64
 chmod +x /usr/bin/dingo
 wget -O /etc/systemd/system/dingo-ecs-us.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dingo-ecs-us.service
-#wget -O /etc/systemd/system/dingo-ecs-cn.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dingo-ecs-cn.service
-wget -O /etc/systemd/system/dingo-alidns-cn.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dingo-alidns-cn.service
+wget -O /etc/systemd/system/dingo-ecs-cn.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dingo-ecs-cn.service
+#wget -O /etc/systemd/system/dingo-alidns-cn.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dingo-alidns-cn.service
 systemctl enable dingo-ecs-us
 #systemctl enable dingo-ecs-cn
 systemctl enable dingo-alidns-cn
