@@ -12,32 +12,32 @@ yum install kmod-wireguard wireguard-tools
 #yum install epel-release -y
 
 #v2ray tcp h2 8443 quic 4443
-bash <(curl -L -s https://install.direct/go.sh)
-wget -O /etc/v2ray/config.json  https://raw.githubusercontent.com/wangyi2005/ocserv/master/v2ray_server.json
-wget -O /etc/v2ray/wy_cer.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wy_cer.pem 
-wget -O /etc/v2ray/wy_key.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wy_key.pem 
-systemctl enable v2ray
+#bash <(curl -L -s https://install.direct/go.sh)
+#wget -O /etc/v2ray/config.json  https://raw.githubusercontent.com/wangyi2005/ocserv/master/v2ray_server.json
+#wget -O /etc/v2ray/wy_cer.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wy_cer.pem 
+#wget -O /etc/v2ray/wy_key.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wy_key.pem 
+#systemctl enable v2ray
 #systemctl start v2ray
 
 # install sniproxy
-wget -O /usr/bin/sniproxy.rpm  https://raw.githubusercontent.com/wangyi2005/ocserv/master/sniproxy-0.6.0.rpm
-yum install /usr/bin/sniproxy.rpm
-wget -O /etc/systemd/system/sniproxy.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/sniproxy.service
-wget -O /etc/sniproxy.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/sniproxy.conf
-systemctl enable sniproxy
+#wget -O /usr/bin/sniproxy.rpm  https://raw.githubusercontent.com/wangyi2005/ocserv/master/sniproxy-0.6.0.rpm
+#yum install /usr/bin/sniproxy.rpm
+#wget -O /etc/systemd/system/sniproxy.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/sniproxy.service
+#wget -O /etc/sniproxy.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/sniproxy.conf
+#systemctl enable sniproxy
 
 # install gost
-wget -O /usr/bin/gost.gz  https://github.com/ginuerzh/gost/releases/download/v2.8.2/gost-linux-amd64-2.8.2.gz
-gzip -d /usr/bin/gost.gz
-chmod +x /usr/bin/gost
-wget -O /etc/systemd/system/gost.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/gost.service
-systemctl enable gost
+#wget -O /usr/bin/gost.gz  https://github.com/ginuerzh/gost/releases/download/v2.8.2/gost-linux-amd64-2.8.2.gz
+#gzip -d /usr/bin/gost.gz
+#chmod +x /usr/bin/gost
+#wget -O /etc/systemd/system/gost.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/gost.service
+#systemctl enable gost
 #systemctl start gost
 
 # nginx v2ray ws
-yum install nginx
-wget -O  /etc/nginx/conf.d/nginx-v2ray.conf https://raw.githubusercontent.com/wangyi2005/ocserv/master/nginx-v2ray.conf
-systemctl enable nginx
+#yum install nginx
+#wget -O  /etc/nginx/conf.d/nginx-v2ray.conf https://raw.githubusercontent.com/wangyi2005/ocserv/master/nginx-v2ray.conf
+#systemctl enable nginx
 #systemctl start nginx
 
 # caddy
@@ -71,9 +71,11 @@ systemctl enable caddy.service
 wget -O /usr/bin/dingo  https://github.com/pforemski/dingo/releases/download/0.13/dingo-linux-amd64
 chmod +x /usr/bin/dingo
 wget -O /etc/systemd/system/dingo-ecs-us.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dingo-ecs-us.service
-wget -O /etc/systemd/system/dingo-ecs-cn.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dingo-ecs-cn.service
+#wget -O /etc/systemd/system/dingo-ecs-cn.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dingo-ecs-cn.service
+wget -O /etc/systemd/system/dingo-alidns-cn.service   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dingo-alidns-cn.service
 systemctl enable dingo-ecs-us
-systemctl enable dingo-ecs-cn
+#systemctl enable dingo-ecs-cn
+systemctl enable dingo-alidns-cn
 #systemctl start dingo
 #systemctl start dingo-edns
 
