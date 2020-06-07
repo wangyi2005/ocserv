@@ -1,0 +1,13 @@
+[Unit]
+Description=Dingo EDNS - DNS over HTTPS
+Wants=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/dingo -port 5353 -gdns:server 223.5.5.5 -gdns:sni dns.alidns.com -gdns:edns 202.102.192.0
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-abort
+StandardOutput=null
+
+[Install]
+WantedBy=multi-user.target
