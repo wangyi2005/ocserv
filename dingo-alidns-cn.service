@@ -1,5 +1,5 @@
 [Unit]
-Description=Dingo EDNS - DNS over HTTPS
+Description=Dingo EDNS - DNS over HTTPS AliDNS
 Wants=network.target
 
 [Service]
