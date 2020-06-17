@@ -1,5 +1,8 @@
 #https://github.com/acmesh-official/acme.sh
+#安装
 curl https://get.acme.sh | sh
+卸载
+acme.sh --uninstall
 #先退出终端再次进入
 exit
 export CF_Key="88851c6e592589879d8fdc1e534d2f0a20784"  
