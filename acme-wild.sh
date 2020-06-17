@@ -1,4 +1,5 @@
 #https://github.com/acmesh-official/acme.sh
+#https://github.com/acmesh-official/acme.sh/wiki/dnsapi
 #安装
 curl https://get.acme.sh | sh
 卸载
