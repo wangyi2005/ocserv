@@ -1,4 +1,4 @@
-#https://github.com/acmesh-official/acme.sh
+#https://github.com/acmesh-official/acme.sh 支持自动续期
 #https://github.com/acmesh-official/acme.sh/wiki/dnsapi
 #安装
 curl https://get.acme.sh | sh
