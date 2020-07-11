@@ -14,10 +14,15 @@ env
 acme.sh --issue --dns dns_cf -d wangyi.cf -d *.wangyi.cf
 #更新acme.sh
 acme.sh --upgrade
-
+------------------------------------------------------------------------------------
 # 手动模式 https://github.com/acmesh-official/acme.sh/wiki/dns-manual-mode
-acme.sh --issue --dns -d vpn.wangyi.cf --yes-I-know-dns-manual-mode-enough-go-ahead-please
+/root/.acme.sh/acme.sh --issue --dns -d vpn.wangyi.cf --yes-I-know-dns-manual-mode-enough-go-ahead-please
+/root/.acme.sh/acme.sh --issue --dns -d cn2.wangyi.cf --yes-I-know-dns-manual-mode-enough-go-ahead-please
 # 在 cloudflare 添加 提示 的 TXT 记录。
+type：TXT
+name：_acme-challenge.cn2
+content:E8RGF1QkE3eZHq0WxI8mdqwMSvbU842KUfth4vyvI2Y
+
 acme.sh --renew --dns -d vpn.wangyi.cf --yes-I-know-dns-manual-mode-enough-go-ahead-please
 
 /root/.acme.sh/wangyi.cf/vpn.wangyi.cf.cer
