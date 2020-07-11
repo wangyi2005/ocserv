@@ -27,9 +27,12 @@ yum -y install dnsmasq
 wget -O /etc/dnsmasq.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/dnsmasq.conf
 systemctl enable dnsmasq
 
-# disable firewalld
+# firewall setup
 systemctl stop firewalld.service
 systemctl mask firewalld.service
+nft add table nat
+nft add rule nat postrouting masquerade
+nft list ruleset > /etc/nftables.conf
 
 #https://shadowsocks.org/en/config/advanced.html
 #https://klaver.it/linux/sysctl.conf
