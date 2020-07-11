@@ -6,7 +6,7 @@ yum update -y
 #install wireguard
 yum install elrepo-release epel-release
 yum install kmod-wireguard wireguard-tools
-mkdir /etc/wireguard 
+#mkdir /etc/wireguard 
 wget -O /etc/wireguard/wg0.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/wg0.conf
 chmod 600 /etc/wireguard/wg0.conf
 #wg-quick up wg0
