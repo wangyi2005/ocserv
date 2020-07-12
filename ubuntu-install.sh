@@ -12,8 +12,10 @@
 #wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.6.3/linux-modules-5.6.3-050603-generic_5.6.3-050603.202004080837_amd64.deb
 #dpkg -i *.deb
 
-# install wireguard
+apt-get update
+apt-get upgrade
 apt install software-properties-common -y
+# install wireguard
 #apt-get install curl -y
 #19.10 still 
 add-apt-repository ppa:wireguard/wireguard 
