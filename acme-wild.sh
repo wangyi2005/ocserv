@@ -25,9 +25,9 @@ type：TXT
 name：_acme-challenge.cn2
 content:E8RGF1QkE3eZHq0WxI8mdqwMSvbU842KUfth4vyvI2Y
 
-acme.sh --renew --dns -d vpn.wangyi.cf --yes-I-know-dns-manual-mode-enough-go-ahead-please
+/root/.acme.sh/acme.sh --renew --dns -d vpn.wangyi.cf --yes-I-know-dns-manual-mode-enough-go-ahead-please
 #ECC 证书
-acme.sh --renew --dns -d gia.wangyi.cf --yes-I-know-dns-manual-mode-enough-go-ahead-please --keylength ec-256
+/root/.acme.sh/acme.sh --renew --dns -d gia.wangyi.cf --yes-I-know-dns-manual-mode-enough-go-ahead-please --keylength ec-256
 
 /root/.acme.sh/wangyi.cf/vpn.wangyi.cf.cer
 /root/.acme.sh/wangyi.cf/vpn.wangyi.cf.key
