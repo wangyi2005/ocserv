@@ -15,8 +15,9 @@ acme.sh --issue --dns dns_cf -d wangyi.cf -d *.wangyi.cf
 #更新acme.sh
 acme.sh --upgrade
 ------------------------------------------------------------------------------------
-# 手动模式 https://github.com/acmesh-official/acme.sh/wiki/dns-manual-mode
-/root/.acme.sh/acme.sh --issue --dns -d vpn.wangyi.cf --yes-I-know-dns-manual-mode-enough-go-ahead-please
+# 手动模式 https://github.com/acmesh-official/acme.sh/wiki/dns-manual-mode 两个证书可以同时申请，存储在不同目录
+#RSA证书
+/root/.acme.sh/acme.sh --issue --dns -d gia.wangyi.cf --yes-I-know-dns-manual-mode-enough-go-ahead-please
 /root/.acme.sh/acme.sh --issue --dns -d cn2.wangyi.cf --yes-I-know-dns-manual-mode-enough-go-ahead-please
 #ECC 证书
 /root/.acme.sh/acme.sh --issue --dns -d gia.wangyi.cf --yes-I-know-dns-manual-mode-enough-go-ahead-please --keylength ec-256
@@ -25,13 +26,19 @@ type：TXT
 name：_acme-challenge.cn2
 content:E8RGF1QkE3eZHq0WxI8mdqwMSvbU842KUfth4vyvI2Y
 
-/root/.acme.sh/acme.sh --renew --dns -d vpn.wangyi.cf --yes-I-know-dns-manual-mode-enough-go-ahead-please
+/root/.acme.sh/acme.sh --renew --dns -d gia.wangyi.cf --yes-I-know-dns-manual-mode-enough-go-ahead-please
 #ECC 证书
 /root/.acme.sh/acme.sh --renew --dns -d gia.wangyi.cf --yes-I-know-dns-manual-mode-enough-go-ahead-please --keylength ec-256
 
 /root/.acme.sh/us.wangyi.cf_ecc/us.wangyi.cf.cer
 /root/.acme.sh/us.wangyi.cf_ecc/us.wangyi.cf.key
-/root/.acme.sh/wangyi.cf/ca.cer
-/root/.acme.sh/wangyi.cf/fullchain.cer
 
+/root/.acme.sh/us.wangyi.cf/us.wangyi.cf.cer
+/root/.acme.sh/us.wangyi.cf/us.wangyi.cf.key
 
+Cisco AnyConnect Secure Mobility Client 4.9.00086  
+
+Protocol:	TLSv1.2
+Cipher:	ECDHE_ECDSA_AES128_GCM_SHA256
+#使用AES128_GCM
+tls-priorities = "NORMAL:%SERVER_PRECEDENCE:%COMPAT:-VERS-SSL3.0:-AES-256-GCM"
