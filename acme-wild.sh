@@ -29,8 +29,8 @@ content:E8RGF1QkE3eZHq0WxI8mdqwMSvbU842KUfth4vyvI2Y
 #ECC 证书
 /root/.acme.sh/acme.sh --renew --dns -d gia.wangyi.cf --yes-I-know-dns-manual-mode-enough-go-ahead-please --keylength ec-256
 
-/root/.acme.sh/wangyi.cf/vpn.wangyi.cf.cer
-/root/.acme.sh/wangyi.cf/vpn.wangyi.cf.key
+/root/.acme.sh/us.wangyi.cf_ecc/us.wangyi.cf.cer
+/root/.acme.sh/us.wangyi.cf_ecc/us.wangyi.cf.key
 /root/.acme.sh/wangyi.cf/ca.cer
 /root/.acme.sh/wangyi.cf/fullchain.cer
 
