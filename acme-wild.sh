@@ -33,6 +33,7 @@ content:E8RGF1QkE3eZHq0WxI8mdqwMSvbU842KUfth4vyvI2Y
 # 过期后续签
 1.删除 /root/.acme.sh/gia.wangyi.cf_ecc 目录所有文件
 2.运行 /root/.acme.sh/acme.sh --issue --dns -d gia.wangyi.cf --yes-I-know-dns-manual-mode-enough-go-ahead-please --keylength ec-256
+3.import 证书。
 
 /root/.acme.sh/us.wangyi.cf_ecc/us.wangyi.cf.cer
 /root/.acme.sh/us.wangyi.cf_ecc/us.wangyi.cf.key
