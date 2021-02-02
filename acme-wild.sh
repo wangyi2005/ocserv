@@ -34,7 +34,8 @@ content:E8RGF1QkE3eZHq0WxI8mdqwMSvbU842KUfth4vyvI2Y
 1.删除 /root/.acme.sh/gia.wangyi.cf_ecc 目录所有文件
 2.运行 /root/.acme.sh/acme.sh --issue --dns -d gia.wangyi.cf --yes-I-know-dns-manual-mode-enough-go-ahead-please --keylength ec-256
  在 cloudflare wangyi.cf dns 中 根据提示增加 TXT 记录，再次运行。
-3.在 cisco 客户端 import 证书。
+3. systemctl restart ocserv
+3.在 cisco android 客户端 import 证书。
 
 /root/.acme.sh/us.wangyi.cf_ecc/us.wangyi.cf.cer
 /root/.acme.sh/us.wangyi.cf_ecc/us.wangyi.cf.key
