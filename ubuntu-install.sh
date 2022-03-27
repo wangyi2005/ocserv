@@ -6,10 +6,10 @@
 
 # update kernel  https://kernel.ubuntu.com/~kernel-ppa/mainline/
 #cd /tmp
-#wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.6.3/linux-headers-5.6.3-050603_5.6.3-050603.202004080837_all.deb
-#wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.6.3/linux-headers-5.6.3-050603-generic_5.6.3-050603.202004080837_amd64.deb
-#wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.6.3/linux-image-unsigned-5.6.3-050603-generic_5.6.3-050603.202004080837_amd64.deb
-#wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.6.3/linux-modules-5.6.3-050603-generic_5.6.3-050603.202004080837_amd64.deb
+#wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.17/amd64/linux-headers-5.17.0-051700-generic_5.17.0-051700.202203202130_amd64.deb
+#wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.17/amd64/linux-headers-5.17.0-051700_5.17.0-051700.202203202130_all.deb
+#wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.17/amd64/linux-image-unsigned-5.17.0-051700-generic_5.17.0-051700.202203202130_amd64.deb
+#wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.17/amd64/linux-modules-5.17.0-051700-generic_5.17.0-051700.202203202130_amd64.deb
 #dpkg -i *.deb
 
 apt-get update
