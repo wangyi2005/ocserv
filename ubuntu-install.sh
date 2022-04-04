@@ -21,6 +21,7 @@ make&&make install
 
 cp doc/profile.xml /usr/local/ocserv
 mkdir -p /etc/ocserv
+wget -O /etc/iptables/rules.v4   https://raw.githubusercontent.com/wangyi2005/ocserv/master/rules.v4
 wget -O /etc/ocserv/ocserv.conf   https://raw.githubusercontent.com/wangyi2005/ocserv/master/ocserv.conf
 wget -O /etc/ocserv/ca-cert.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/ca-cert.pem
 wget -O /etc/ocserv/server-cert.pem  https://raw.githubusercontent.com/wangyi2005/ocserv/master/server-cert.pem
