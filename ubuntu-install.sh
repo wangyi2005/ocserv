@@ -28,6 +28,13 @@ wget -O /etc/ocserv/server-cert.pem  https://raw.githubusercontent.com/wangyi200
 wget -O /etc/ocserv/server-key.pem  https://raw.githubusercontent.com/wangyi2005/ocserv/master/server-key.pem
 wget -O /etc/systemd/system/ocserv.service  https://raw.githubusercontent.com/wangyi2005/ocserv/master/ocserv.service
 
+/usr/local/ocserv/bin/ocpasswd -c /etc/ocserv/ocpasswd  wangyi
+systemctl enable ocserv
+systemctl start ocserv
+
+iptables-restore < /etc/iptables/rules.v4
+systemctl restart iptables
+
 # ip forward bbr
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf 
 echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
