@@ -7,7 +7,7 @@ After=network-online.target
 [Service]
 PrivateTmp=true
 PIDFile=/run/ocserv.pid
-ExecStart=/usr/sbin/ocserv --foreground --pid-file /run/ocserv.pid --config /etc/ocserv/ocserv.conf
+ExecStart=/usr/local/ocserv --foreground --pid-file /run/ocserv.pid --config /etc/ocserv/ocserv.conf
 ExecReload=/bin/kill -HUP $MAINPID
 
 [Install]
