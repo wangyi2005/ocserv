@@ -5,7 +5,7 @@ apt-get upgrade
 
 apt-get install -y libgnutls28-dev libev-dev
 
-apt get install -y libpam0g-dev liblz4-dev libseccomp-dev \
+apt-get install -y libpam0g-dev liblz4-dev libseccomp-dev \
 	libreadline-dev libnl-route-3-dev libkrb5-dev libradcli-dev \
 	libcurl4-gnutls-dev libcjose-dev libjansson-dev libprotobuf-c-dev \
 	libtalloc-dev libhttp-parser-dev protobuf-c-compiler gperf \
@@ -25,6 +25,7 @@ wget -O /etc/ocserv/ocserv.conf   https://raw.githubusercontent.com/wangyi2005/o
 wget -O /etc/ocserv/ca-cert.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/ca-cert.pem
 wget -O /etc/ocserv/server-cert.pem  https://raw.githubusercontent.com/wangyi2005/ocserv/master/server-cert.pem
 wget -O /etc/ocserv/server-key.pem  https://raw.githubusercontent.com/wangyi2005/ocserv/master/server-key.pem
+wget -O /etc/systemd/system/ocserv.service  https://raw.githubusercontent.com/wangyi2005/ocserv/master/ocserv.service
 
 # ip forward bbr
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf 
