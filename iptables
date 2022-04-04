@@ -4,7 +4,7 @@
 :INPUT ACCEPT [0:0]
 :OUTPUT ACCEPT [0:0]
 :POSTROUTING ACCEPT [0:0]
--A POSTROUTING -o eth0 -j MASQUERADE
+-A POSTROUTING -o ens3 -j MASQUERADE
 COMMIT
 
 *mangle
@@ -19,9 +19,9 @@ COMMIT
 :INPUT ACCEPT [0:0]
 :FORWARD ACCEPT [0:0]
 :OUTPUT ACCEPT [0:0]
--A INPUT -i eth0 -p tcp -m state --state NEW,ESTABLISHED  -j ACCEPT
--A FORWARD -i wg0 -o eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT
--A FORWARD -i eth0 -o wg0 -m state --state RELATED,ESTABLISHED -j ACCEPT
--A OUTPUT -o eth0 -p tcp -m state --state ESTABLISHED  -j ACCEPT
+-A INPUT -i ens3 -p tcp -m state --state NEW,ESTABLISHED  -j ACCEPT
+-A FORWARD -i vpns -o ens3 -m state --state RELATED,ESTABLISHED -j ACCEPT
+-A FORWARD -i ens3 -o vpns -m state --state RELATED,ESTABLISHED -j ACCEPT
+-A OUTPUT -o ens3 -p tcp -m state --state ESTABLISHED  -j ACCEPT
 COMMIT
 # Completed on Sat May 18 08:13:53 2019
