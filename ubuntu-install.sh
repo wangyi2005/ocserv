@@ -29,6 +29,7 @@ wget -O /etc/ocserv/server-key.pem  https://raw.githubusercontent.com/wangyi2005
 wget -O /lib/systemd/system/ocserv.service  https://raw.githubusercontent.com/wangyi2005/ocserv/master/ocserv.service
 
 /usr/local/ocserv/bin/ocpasswd -c /etc/ocserv/ocpasswd  wangyi
+systemctl daemon-reload
 systemctl enable ocserv
 systemctl start ocserv
 
