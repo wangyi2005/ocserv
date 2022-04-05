@@ -26,7 +26,7 @@ wget -O /etc/ocserv/ocserv.conf   https://raw.githubusercontent.com/wangyi2005/o
 wget -O /etc/ocserv/ca-cert.pem   https://raw.githubusercontent.com/wangyi2005/ocserv/master/ca-cert.pem
 wget -O /etc/ocserv/server-cert.pem  https://raw.githubusercontent.com/wangyi2005/ocserv/master/server-cert.pem
 wget -O /etc/ocserv/server-key.pem  https://raw.githubusercontent.com/wangyi2005/ocserv/master/server-key.pem
-wget -O /etc/systemd/system/ocserv.service  https://raw.githubusercontent.com/wangyi2005/ocserv/master/ocserv.service
+wget -O /lib/systemd/system/ocserv.service  https://raw.githubusercontent.com/wangyi2005/ocserv/master/ocserv.service
 
 /usr/local/ocserv/bin/ocpasswd -c /etc/ocserv/ocpasswd  wangyi
 systemctl enable ocserv
