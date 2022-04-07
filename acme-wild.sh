@@ -1,3 +1,10 @@
+apt install certbot
+certbot certonly --standalone --preferred-challenges http --agree-tos --email you@example.com -d vpn.example.com
+/etc/letsencrypt/live/oc.wangyi2020.tk/fullchain.pem
+/etc/letsencrypt/live/oc.wangyi2020.tk/chain.pem
+/etc/letsencrypt/live/oc.wangyi2020.tk/cert.pem
+/etc/letsencrypt/live/oc.wangyi2020.tk/privkey.pem
+
 #https://github.com/acmesh-official/acme.sh 支持自动续期
 #https://github.com/acmesh-official/acme.sh/wiki/dnsapi
 #安装
