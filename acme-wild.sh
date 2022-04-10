@@ -4,6 +4,11 @@ certbot certonly --standalone --preferred-challenges http --agree-tos --email yo
 /etc/letsencrypt/live/oc.wangyi2020.tk/chain.pem
 /etc/letsencrypt/live/oc.wangyi2020.tk/cert.pem
 /etc/letsencrypt/live/oc.wangyi2020.tk/privkey.pem
+chown -R ubuntu:ubuntu /etc/ 
+chown -R ubuntu:ubuntu /etc/letsencrypt/
+chown -R ubuntu:ubuntu /etc/letsencrypt/live/
+chown -R ubuntu:ubuntu /etc/letsencrypt/live/oc.wangyi2020.tk/
+scp -i D:\OneDrive\软件\oracle\ssh-key-2022-04-04-155.key ubuntu@155.248.196.45:/etc/letsencrypt/live/oc.wangyi2020.tk/privkey.pem d:/privkey.pem
 
 #https://github.com/acmesh-official/acme.sh 支持自动续期
 #https://github.com/acmesh-official/acme.sh/wiki/dnsapi
