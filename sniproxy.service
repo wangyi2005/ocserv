@@ -1,11 +1,18 @@
 
 [Unit]
-Description= sni proxy
-After=network.target
+Description=Sniproxy
+After=network-online.target
+Wants=network-online.target systemd-networkd-wait-online.service
 
 [Service]
-ExecStart=/usr/sbin/sniproxy -f
+LimitCORE=infinity
+LimitNOFILE=512000
+LimitNPROC=512000
+Type=forking
+User=root
 Restart=always
+RestartSec=5s
+ExecStart=/usr/sbin/sniproxy -c /etc/sniproxy.conf
 
 [Install]
 WantedBy=multi-user.target
