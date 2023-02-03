@@ -1,3 +1,4 @@
+#netflix
 fast.com
 netflix.ca
 netflix.com
@@ -10,3 +11,10 @@ nflximg.net
 nflxsearch.net
 nflxso.net
 nflxvideo.net
+#apkpure
+apkpure.com
+cdnpure.com
+pureapk.com
+winudf.com
+#openai
+openai.com
