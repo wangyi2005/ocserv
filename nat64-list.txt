@@ -1,0 +1,5 @@
+optimizely.com
+adnxs.com
+chartbeat.com
+akamai.net
+warnermediacdn.com
